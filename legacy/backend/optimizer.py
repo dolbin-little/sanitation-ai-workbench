@@ -4,7 +4,7 @@ import itertools
 import math
 import random
 import time
-from .model import Evaluator, compatible, settings, upgrade, assign_crews
+from .model import Evaluator, compatible, incompatibility, settings, upgrade, assign_crews
 from .shield import inspect
 
 
@@ -17,13 +17,22 @@ def candidate(ev,a):
 
 def insertions(ev,a,tid,limit=3):
     choices=[];t=ev.tasks[tid]
+    def record(vid,reason=None,feasible=False):
+        key=(tid,vid)
+        if key not in ev.decision_evidence and len(ev.decision_evidence)>=12000:ev.evidence_truncated=True;return
+        r=ev.decision_evidence.setdefault(key,{'task':tid,'vehicle':vid,'tested':0,'feasible':0,'rejections':{}})
+        r['tested']+=1;r['feasible']+=int(feasible)
+        if reason:r['rejections'][reason]=r['rejections'].get(reason,0)+1
+    for v in ev.s['vehicles']:
+        if not v['enabled']:record(v['id'],'车辆故障或禁用，未进入插入候选')
     # Screen with single route checks, then compare full calendar-aware schedules.
     for vid,v in ev.vs.items():
-        if not compatible(ev.s,v,t):continue
+        if not compatible(ev.s,v,t):record(vid,incompatibility(ev.s,v,t));continue
         for pos in range(len(a[vid])+1):
             seq=a[vid][:pos]+[tid]+a[vid][pos:]
             steps=ev.route(vid,seq)
-            if steps is None:continue
+            if steps is None:record(vid,ev.last_failure or '当前插入路线不可行');continue
+            record(vid,feasible=True)
             local=(sum(x['late']*ev.tasks[x['task']]['priority'] for x in steps if x.get('task')),
                    sum(x['km'] for x in steps))
             choices.append((local,vid,pos))
@@ -161,6 +170,8 @@ def package(ev,c,strategy,started,trace,extra=None):
             changes=len(changes),vehicles_used=sum(bool(seq) for seq in routes.values()),runtime_ms=round((time.perf_counter()-started)*1000,1)),
         explanation='H-ALNS / 三层词典序 / 五情景CVaR / 独立安全盾。合成预测与代理成本不代表企业实测收益。')
     p['shield']=inspect(ev.s,p)
+    p['decision_evidence']=list(ev.decision_evidence.values())
+    p['evidence_scope']='求解期间实际尝试的插入/筛选记录。原因只适用于当时路线与插入位置；可行未选不代表更差，也不证明全局不可行。未记录的组合不能推断为已评估。'+('记录达到12000组合上限，已截断。' if ev.evidence_truncated else '')
     return p
 
 

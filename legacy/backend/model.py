@@ -35,6 +35,14 @@ def compatible(s,v,t):
     elif t.get('skills'): return False
     return True
 
+def incompatibility(s,v,t):
+    if not v['enabled']:return '车辆故障或禁用'
+    if t['kind']!=v['kind']:return '车型不兼容'
+    if t.get('locked_to') and t['locked_to']!=v['id']:return '任务锁定在其他车辆'
+    if s.get('weather',0) in t.get('forbidden_weather',[]):return '天气限制'
+    if not compatible(s,v,t):return '人员资质或任务技能不匹配'
+    return None
+
 
 def planned_water(s,t):
     """Reserve calibrated upper water consumption; execution uses this conservative estimate."""
@@ -166,6 +174,7 @@ def prefixes(s):
 
 class Evaluator:
     def __init__(self,s):
+        self.decision_evidence={};self.last_failure=None;self.evidence_truncated=False
         self.s=s; self.net=Network(s); self.tasks={t['id']:t for t in s['tasks']}; self.vs={v['id']:v for v in s['vehicles'] if v['enabled']}
         self.prefix,self.reserved=prefixes(s); self.config=settings(s)
         self.pending={t['id'] for t in s['tasks'] if t['status']=='pending' and t['id'] not in self.reserved}
@@ -179,8 +188,10 @@ class Evaluator:
                     if f: self.calendar[f['id']].append((a['begin'],a['finish']))
 
     def route(self,vid,ids,calendar=None):
+        self.last_failure=None
+        def fail(reason):self.last_failure=reason;return None
         v=self.vs[vid]; s=self.s; crew=next((p for p in s.get('personnel',[]) if p['id']==v.get('crew')),None)
-        if s.get('personnel') and not crew and (ids or v['active'] or v['node']!=v['home'] or v['load']>0):return None
+        if s.get('personnel') and not crew and (ids or v['active'] or v['node']!=v['home'] or v['load']>0):return fail('缺少当班驾驶员')
         clock=max(s['now'],v.get('shift_start',s['now']),crew['shift_start'] if crew else 0)
         end_shift=min(v['shift_end']+v.get('max_overtime',0),crew['shift_end'] if crew else 1440)
         node=v['node']; load=v['load']; water=v['water']; energy=v.get('energy',v.get('energy_capacity',1e9))
@@ -191,17 +202,19 @@ class Evaluator:
         def move(destination,kind,label,duration=0,earliest=0,close=1440,task=None,path=None,facility=None):
             nonlocal node,clock,load,water,energy
             trip=self.net.path(node,destination,clock,v)
-            if trip is None:return False
+            if trip is None:fail('当前路线到目的节点不可达');return False
             arrival=clock+trip[0]; begin=max(arrival,earliest)
             if facility:
                 begin=slot(cal[facility['id']],begin+facility.get('queue',0),duration,facility.get('bays',999))
             pc=self.net.path_cost(path,begin,v) if path else (0,0)
-            if pc is None:return False
+            if pc is None:fail('指定作业道路不可通行');return False
             finish=begin+max(duration,pc[0]); km=trip[1]+pc[1]
             after_energy=energy-km*v.get('energy_per_km',0)-(task.get('energy',0) if task else 0)
-            if after_energy < -1e-8 or finish>end_shift+1e-8 or finish>close+1e-8:return False
+            if after_energy < -1e-8:fail('途中能量不足');return False
+            if finish>end_shift+1e-8:fail('超过人员或车辆班次');return False
+            if finish>close+1e-8:fail('超过设施关闭时间或任务硬时窗');return False
             newload=load+(task['demand'] if task else 0); newwater=water-(planned_water(s,task) if task else 0)
-            if newload>v['capacity']+1e-8 or newwater< -1e-8:return False
+            if newload>v['capacity']+1e-8 or newwater< -1e-8:fail('载重或剩余水量不足');return False
             if facility:
                 reset=facility.get('resets',['load','water','energy'])
                 if 'load' in reset:newload=0
@@ -233,16 +246,17 @@ class Evaluator:
             return False
         for tid in ids:
             t=self.tasks[tid]
-            if not compatible(s,v,t):return None
+            if not compatible(s,v,t):return fail(incompatibility(s,v,t))
             demand_water=planned_water(s,t)
-            if t['demand']>v['capacity'] or demand_water>v['water_capacity']:return None
+            if t['demand']>v['capacity'] or demand_water>v['water_capacity']:return fail('单项需求超过车辆载重或水箱容量')
             needs=[]
             if load+t['demand']>v['capacity']:needs.append('load')
             if water<demand_water:needs.append('water')
             if energy<v.get('energy_capacity',0)*.25:needs.append('energy')
-            if needs and not replenish(needs):return None
+            if needs and not replenish(needs):return fail('需要补给但当前资源/设施/时段下无法完成补给')
             paths=[t.get('service_path',[t['start']] if t['start']==t['end'] else [t['start'],t['end']])]
             if t.get('reversible') and len(paths[0])>1:paths.append(list(reversed(paths[0])))
+            self.last_failure=None
             choices=[]
             for path in paths:
                 trip=self.net.path(node,path[0],clock,v)
@@ -250,10 +264,10 @@ class Evaluator:
             success=False
             for _,path in sorted(choices):
                 if move(path[0],'task',t['name'],t['service'],t['earliest'],t.get('hard_end',1440),task=t,path=path):success=True;break
-            if not success:return None
+            if not success:return fail(self.last_failure or '指定服务道路不可达或不允许通行')
         if ids or steps or v['active'] or node!=v['home'] or load:
-            if load>0 and not replenish(['load']):return None
-            if not move(v['home'],'depot','返回车场'):return None
+            if load>0 and not replenish(['load']):return fail('作业后无法完成卸载')
+            if not move(v['home'],'depot','返回车场'):return fail(self.last_failure or '作业后无法返场')
         return steps
 
     def build(self,assignment):

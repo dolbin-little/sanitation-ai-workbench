@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1",
   "reviewed_on": "2026-10-30",
-  "purpose": "环卫智枢低速清扫/收运车辆执行仿真中导师技术的来源核对。保留公开学术署名，不包含简历、联系方式或私人信息。",
+  "purpose": "环卫智枢低速清扫/收运车辆执行仿真中参考文献技术的来源核对。保留公开学术署名，不包含简历、联系方式或私人信息。",
   "scope": "仅环卫平台；车端安全制动、定位与控制独立于可选边缘计算。",
   "status_legend": {
     "used_independent_partial_adaptation": "已据drive/edge.py静态核对，独立实现部分简化模型或子问题；不是完整论文或专利复现",
@@ -10,7 +10,7 @@
     "public_reference_not_reproduced": "公开文献已核对，无训练/数据/权重复现",
     "related_prior_work_not_separately_implemented": "相关专利背景，本版不单独计为采用或完整实施"
   },
-  "distribution_note": "本目录只存来源元数据与独立归纳，不复制IEEE论文全文、导师简历或专利证书。持有论文/证书不等于获得专利实施许可；这里不作实施自由或法律状态结论。",
+  "distribution_note": "本目录只存来源元数据与独立归纳，不复制IEEE论文全文、参考文献简历或专利证书。持有论文/证书不等于获得专利实施许可；这里不作实施自由或法律状态结论。",
   "sources": [
     {
       "id": "mentor-tsc-2023-priority",
@@ -36,9 +36,6 @@
       ],
       "evidence": {
         "kind": "local_full_paper_and_extracted_text",
-        "local_pdf": "交付/05_导师论文/01_优先级卸载_TSC2023.pdf",
-        "local_text": ".build/paper-priority.txt",
-        "root": "D:/比赛/国创的系统资料/专利论文与PPT_20261012",
         "sha256": "82caa0651b2707b0621a330afbcc615b13aca513fc884b4caaa9c9ad9f03436d",
         "pdf_pages": 14,
         "checked_sections": [
@@ -101,9 +98,6 @@
       ],
       "evidence": {
         "kind": "local_full_paper_and_extracted_text",
-        "local_pdf": "交付/05_导师论文/02_两层博弈_TCC2025.pdf",
-        "local_text": ".build/paper-game.txt",
-        "root": "D:/比赛/国创的系统资料/专利论文与PPT_20261012",
         "sha256": "69250645a32eaa79034de5694cf81dcfaa7e0e1d0b7e4c13616ab73a2c0fef6e",
         "pdf_pages": 18,
         "checked_sections": [
@@ -166,9 +160,6 @@
       ],
       "evidence": {
         "kind": "local_full_paper_and_extracted_text",
-        "local_pdf": "交付/05_导师论文/03_服务迁移_Algorithms2024.pdf",
-        "local_text": ".build/paper-migration.txt",
-        "root": "D:/比赛/国创的系统资料/专利论文与PPT_20261012",
         "sha256": "310383dcd0b0ec696908b7ff0b9a8289bb74ac99d75b076a4229dac3efedf81e",
         "pdf_pages": 23,
         "checked_sections": [
@@ -250,9 +241,6 @@
       ],
       "evidence": {
         "kind": "local_certificate_plus_full_granted_specification_and_claims",
-        "local_pdf": "交付/04_专利说明书与权利要求/CN114143317B.pdf",
-        "local_text": ".build/CN114143317B.txt",
-        "root": "D:/比赛/国创的系统资料/专利论文与PPT_20261012",
         "pdf_pages": 33,
         "sha256": "82a71687d73166faebd7f771a5442ff0faf352a6a6e5a0edf9e8ad61e4cc8537",
         "checked_sections": [
@@ -303,9 +291,6 @@
       ],
       "evidence": {
         "kind": "local_certificate_plus_full_granted_specification_and_claims",
-        "local_pdf": "交付/04_专利说明书与权利要求/CN114126066B.pdf",
-        "local_text": ".build/CN114126066B.txt",
-        "root": "D:/比赛/国创的系统资料/专利论文与PPT_20261012",
         "pdf_pages": 33,
         "sha256": "989d0b41098c5a0eda05f41f4a5f65b7d67ae2fe19eb352dc7c8543a8869748b",
         "checked_sections": [
@@ -343,9 +328,6 @@
       ],
       "evidence": {
         "kind": "local_certificate_plus_full_granted_specification_and_claims",
-        "local_pdf": "交付/04_专利说明书与权利要求/CN115696452B.pdf",
-        "local_text": ".build/CN115696452B.txt",
-        "root": "D:/比赛/国创的系统资料/专利论文与PPT_20261012",
         "pdf_pages": 34,
         "sha256": "85a6ba2e93b7a265345014c1cff4e11e20ac9151467f3895fcc43c37e27809e3",
         "checked_sections": [
@@ -371,7 +353,7 @@
       },
       "must_not_claim": [
         "资源条形图等于完整博弈求解",
-        "导师专利已授权本项目实施"
+        "参考文献专利已授权本项目实施"
       ],
       "adoption_note": "对应论文/方法的相关专利背景；实际代码按公开论文局部独立改编，不额外计为一项采用专利。"
     },
@@ -395,9 +377,6 @@
       ],
       "evidence": {
         "kind": "local_certificate_plus_full_granted_specification_and_claims",
-        "local_pdf": "交付/04_专利说明书与权利要求/CN114612825B.pdf",
-        "local_text": ".build/CN114612825B.txt",
-        "root": "D:/比赛/国创的系统资料/专利论文与PPT_20261012",
         "pdf_pages": 9,
         "sha256": "5c025cd0c542233d2cb4af9dcf55bed6c68d83691b1932fa6e948618d77841b8",
         "checked_sections": [
@@ -463,9 +442,6 @@
       ],
       "evidence": {
         "kind": "local_B_certificate_and_local_A_full_specification;public_B_bibliography_checked",
-        "local_pdf": "交付/04_专利说明书与权利要求/CN116684168A.pdf",
-        "local_text": ".build/CN116684168A.txt",
-        "root": "D:/比赛/国创的系统资料/专利论文与PPT_20261012",
         "pdf_pages": 15,
         "sha256": "745b5f93db4d97d59c846a53ab9902203421ee9bb35950bdde8b1190f216e390",
         "checked_sections": [

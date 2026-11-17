@@ -1,0 +1,32 @@
+{
+  "date": "2026-11-14",
+  "automated": {
+    "assistant_first_round": 11,
+    "assistant_second_round": 9,
+    "driving_regression": 14,
+    "passed": 34
+  },
+  "live_model": {
+    "passed": 11,
+    "total": 11,
+    "data_scope": "独立临时合成车队，未改当前工作任务"
+  },
+  "browser": [
+    "真实只读对话",
+    "刷新恢复当前会话",
+    "来源片段检索",
+    "XLSX本地校验"
+  ],
+  "knowledge": {
+    "sources": 27,
+    "chunks": 69,
+    "method": "BM25"
+  },
+  "not_completed": [
+    "模型微调（本次未进行）",
+    "论文全文全量入库",
+    "地图自动配准",
+    "扫描PDF OCR",
+    "生产级多用户权限"
+  ]
+}

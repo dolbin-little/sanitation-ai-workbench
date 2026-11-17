@@ -1,0 +1,2 @@
+id,name,kind,start,end,earliest,deadline,service,demand,water,priority
+AI-DEMO-001,清单导入示例,collection,N1-4,N1-4,600,900,8,1.5,0,3

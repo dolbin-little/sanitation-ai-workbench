@@ -1,5 +1,5 @@
 """Loopback-only sanitation dispatch + low-speed driving research workbench."""
-import argparse,importlib.util,json,math,mimetypes,sqlite3,sys,threading
+import argparse,importlib.util,json,math,mimetypes,sqlite3,sys,threading,socket
 from pathlib import Path
 from contextlib import closing
 from urllib.parse import urlparse
@@ -10,6 +10,7 @@ spec=importlib.util.spec_from_file_location('fleet_server',ROOT/'legacy/server.p
 fleet_server=importlib.util.module_from_spec(spec);spec.loader.exec_module(fleet_server)
 from drive.session import Session,POLICIES
 from drive.world import SCENARIOS,clip
+from assistant_service import Assistant
 
 class DriveStore:
     def __init__(self,db,fleet):
@@ -66,9 +67,13 @@ class DriveStore:
             self.revision+=1;return self.state()
 
 def handler(fleet,drive):
+    assistant=Assistant(fleet)
     class Handler(fleet_server.handler(fleet)):
         def do_GET(self):
             path=urlparse(self.path).path
+            if path=='/assistant':return self.send((ROOT/'web/assistant.html').read_bytes(),content_type='text/html; charset=utf-8')
+            if path=='/api/assistant/status':return self.send(assistant.status())
+            if path=='/api/assistant/state':return self.send(assistant.read())
             if path=='/api/drive/state':
                 with drive.lock:return self.send(drive.state())
             if path=='/api/drive/config':return self.send({'scenarios':SCENARIOS,'policies':POLICIES,'mission_scope':'环卫工单字段与独立服务道路驾驶仿真关联'})
@@ -93,6 +98,16 @@ def handler(fleet,drive):
                 return self.send(p.read_bytes(),content_type=(mimetypes.guess_type(str(p))[0] or 'application/octet-stream')+'; charset=utf-8')
             return super().do_GET()
         def do_POST(self):
+            if self.path.startswith('/api/assistant/'):
+                if self.headers.get('Origin') not in (None,f'http://127.0.0.1:{self.server.server_port}',f'http://localhost:{self.server.server_port}'):return self.send({'error':'不接受跨站请求'},403)
+                if self.headers.get('Content-Type','').split(';')[0]!='application/json':return self.send({'error':'须使用JSON'},415)
+                try:
+                    n=int(self.headers.get('Content-Length','0'))
+                    if not 0<n<=4000000:raise ValueError('请求上限4MB')
+                    b=json.loads(self.rfile.read(n),parse_constant=lambda _:(_ for _ in ()).throw(ValueError('非有限数字')))
+                    if not isinstance(b,dict):raise ValueError('请求须为对象')
+                    return self.send(assistant.call(self.path.rsplit('/',1)[-1],b))
+                except (ValueError,KeyError,TypeError) as e:return self.send({'error':str(e)},400)
             if not self.path.startswith('/api/drive/'):return super().do_POST()
             if self.headers.get('Origin') not in (None,f'http://127.0.0.1:{self.server.server_port}',f'http://localhost:{self.server.server_port}'):return self.send({'error':'不接受跨站请求'},403)
             if self.headers.get('Content-Type','').split(';')[0]!='application/json':return self.send({'error':'须使用application/json'},415)
@@ -105,10 +120,17 @@ def handler(fleet,drive):
             except (ValueError,KeyError,TypeError) as e:return self.send({'error':str(e)},400)
     return Handler
 
+class LocalHTTPServer(ThreadingHTTPServer):
+    allow_reuse_address=False
+    def server_bind(self):
+        if hasattr(socket,'SO_EXCLUSIVEADDRUSE'):
+            self.socket.setsockopt(socket.SOL_SOCKET,socket.SO_EXCLUSIVEADDRUSE,1)
+        super().server_bind()
+
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--port',type=int,default=8780);a=p.parse_args()
     fleet=fleet_server.Store(ROOT/'data/fleet.sqlite3');drive=DriveStore(ROOT/'data/driving.sqlite3',fleet)
-    server=ThreadingHTTPServer(('127.0.0.1',a.port),handler(fleet,drive))
+    server=LocalHTTPServer(('127.0.0.1',a.port),handler(fleet,drive))
     print(f'环卫智枢 · 低速作业驾驶协同 http://127.0.0.1:{a.port}/',flush=True)
     try:server.serve_forever()
     except KeyboardInterrupt:server.server_close()
