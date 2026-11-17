@@ -91,5 +91,15 @@ Pop-Location
 
 仓库的首次提交导入了团队提供的 2026-11-14 第三轮交付包，后续提交记录参赛整理。原有开发历史未随交付包提供。
 
+### 开发阶段存档
+
+[存档分支](https://github.com/dolbin-little/sanitation-ai-workbench/commits/development-snapshots/)按团队确认的开发顺序整理。提交时间是整理存档的时间，旧版本的时间依据写在各提交的 `ARCHIVE-PROVENANCE.md` 中。
+
+| 阶段 | 存档里的材料 |
+| --- | --- |
+| [车队调度工作台](https://github.com/dolbin-little/sanitation-ai-workbench/commit/e66bfccf781df70c8d15f04303ab189c66a75c5c) | 驾驶版交付包保留的 V0.2 调度源码。随包验证记录标注日期为 2026-10-08。 |
+| [低速驾驶仿真](https://github.com/dolbin-little/sanitation-ai-workbench/commit/88460b0e727e2c13608b0d957db5d32010273dc0) | 2026-10-29 驾驶平台交付包中的 Web 版源码，包含感知、路径规划、安全监控和仿真记录。 |
+| AI 作业中心 | 第三轮交付包内有[第一轮](https://github.com/dolbin-little/sanitation-ai-workbench/commit/cbedee98dd2a78166741ecf6e39ed3d5f6d65c5a)和[第二轮](https://github.com/dolbin-little/sanitation-ai-workbench/commit/0752080d7c0fc7c12f394da5eb4908ddb64b61ff)的部分文件，以及 [2026-11-14 第三轮参赛源码](https://github.com/dolbin-little/sanitation-ai-workbench/commit/2357f67f197d8c279daeaeea9bd38f594e93bcec)。前两轮备份可用来对比文件改动。 |
+
 上一轮的 `backups/round2/model.py` 用于路线行为回归测试。第三方实现和参考论文见 `references/`，依赖沿用各自的许可。
 
