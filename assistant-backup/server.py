@@ -1,5 +1,5 @@
 """Loopback-only sanitation dispatch + low-speed driving research workbench."""
-import argparse,importlib.util,json,math,mimetypes,sqlite3,sys,threading
+import argparse,importlib.util,json,math,mimetypes,sqlite3,sys,threading,socket
 from pathlib import Path
 from contextlib import closing
 from urllib.parse import urlparse
@@ -120,10 +120,17 @@ def handler(fleet,drive):
             except (ValueError,KeyError,TypeError) as e:return self.send({'error':str(e)},400)
     return Handler
 
+class LocalHTTPServer(ThreadingHTTPServer):
+    allow_reuse_address=False
+    def server_bind(self):
+        if hasattr(socket,'SO_EXCLUSIVEADDRUSE'):
+            self.socket.setsockopt(socket.SOL_SOCKET,socket.SO_EXCLUSIVEADDRUSE,1)
+        super().server_bind()
+
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('--port',type=int,default=8780);a=p.parse_args()
     fleet=fleet_server.Store(ROOT/'data/fleet.sqlite3');drive=DriveStore(ROOT/'data/driving.sqlite3',fleet)
-    server=ThreadingHTTPServer(('127.0.0.1',a.port),handler(fleet,drive))
+    server=LocalHTTPServer(('127.0.0.1',a.port),handler(fleet,drive))
     print(f'环卫智枢 · 低速作业驾驶协同 http://127.0.0.1:{a.port}/',flush=True)
     try:server.serve_forever()
     except KeyboardInterrupt:server.server_close()
