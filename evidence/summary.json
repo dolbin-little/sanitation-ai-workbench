@@ -1,0 +1,754 @@
+{
+  "status": "measured",
+  "total_runs": 360,
+  "scenario_count": 9,
+  "seeds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009
+  ],
+  "policies": [
+    "reactive",
+    "shielded",
+    "no_shield",
+    "bc_guarded"
+  ],
+  "groups": [
+    {
+      "scenario": "collection",
+      "scenario_name": "定点收运靠站",
+      "policy": "reactive",
+      "policy_name": "固定路径＋反应式制动",
+      "n": 10,
+      "safe_success": 10,
+      "safe_success_wilson95": [
+        0.7225,
+        1
+      ],
+      "completed": 10,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 30.68,
+      "mean_distance_m": 83.993,
+      "mean_step_p95_ms": 5.993
+    },
+    {
+      "scenario": "collection",
+      "scenario_name": "定点收运靠站",
+      "policy": "shielded",
+      "policy_name": "环卫规划＋独立安全监控",
+      "n": 10,
+      "safe_success": 10,
+      "safe_success_wilson95": [
+        0.7225,
+        1
+      ],
+      "completed": 10,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 28.84,
+      "mean_distance_m": 82.651,
+      "mean_step_p95_ms": 5.793
+    },
+    {
+      "scenario": "collection",
+      "scenario_name": "定点收运靠站",
+      "policy": "no_shield",
+      "policy_name": "消融：关闭独立安全监控",
+      "n": 10,
+      "safe_success": 10,
+      "safe_success_wilson95": [
+        0.7225,
+        1
+      ],
+      "completed": 10,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 28.84,
+      "mean_distance_m": 82.651,
+      "mean_step_p95_ms": 5.801
+    },
+    {
+      "scenario": "collection",
+      "scenario_name": "定点收运靠站",
+      "policy": "bc_guarded",
+      "policy_name": "行为克隆基线＋安全监控",
+      "n": 10,
+      "safe_success": 10,
+      "safe_success_wilson95": [
+        0.7225,
+        1
+      ],
+      "completed": 10,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 32.06,
+      "mean_distance_m": 82.957,
+      "mean_step_p95_ms": 5.793
+    },
+    {
+      "scenario": "sweeping",
+      "scenario_name": "连续道路清扫",
+      "policy": "reactive",
+      "policy_name": "固定路径＋反应式制动",
+      "n": 10,
+      "safe_success": 0,
+      "safe_success_wilson95": [
+        0,
+        0.2775
+      ],
+      "completed": 0,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 30.68,
+      "mean_distance_m": 83.993,
+      "mean_step_p95_ms": 5.297
+    },
+    {
+      "scenario": "sweeping",
+      "scenario_name": "连续道路清扫",
+      "policy": "shielded",
+      "policy_name": "环卫规划＋独立安全监控",
+      "n": 10,
+      "safe_success": 10,
+      "safe_success_wilson95": [
+        0.7225,
+        1
+      ],
+      "completed": 10,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 49.62,
+      "mean_distance_m": 82.45,
+      "mean_step_p95_ms": 5.808
+    },
+    {
+      "scenario": "sweeping",
+      "scenario_name": "连续道路清扫",
+      "policy": "no_shield",
+      "policy_name": "消融：关闭独立安全监控",
+      "n": 10,
+      "safe_success": 10,
+      "safe_success_wilson95": [
+        0.7225,
+        1
+      ],
+      "completed": 10,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 49.62,
+      "mean_distance_m": 82.45,
+      "mean_step_p95_ms": 5.677
+    },
+    {
+      "scenario": "sweeping",
+      "scenario_name": "连续道路清扫",
+      "policy": "bc_guarded",
+      "policy_name": "行为克隆基线＋安全监控",
+      "n": 10,
+      "safe_success": 10,
+      "safe_success_wilson95": [
+        0.7225,
+        1
+      ],
+      "completed": 10,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 48.72,
+      "mean_distance_m": 82.203,
+      "mean_step_p95_ms": 5.963
+    },
+    {
+      "scenario": "pedestrian",
+      "scenario_name": "作业区行人横穿",
+      "policy": "reactive",
+      "policy_name": "固定路径＋反应式制动",
+      "n": 10,
+      "safe_success": 0,
+      "safe_success_wilson95": [
+        0,
+        0.2775
+      ],
+      "completed": 0,
+      "collision_episodes": 10,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 15.71,
+      "mean_distance_m": 38.765,
+      "mean_step_p95_ms": 20.501
+    },
+    {
+      "scenario": "pedestrian",
+      "scenario_name": "作业区行人横穿",
+      "policy": "shielded",
+      "policy_name": "环卫规划＋独立安全监控",
+      "n": 10,
+      "safe_success": 10,
+      "safe_success_wilson95": [
+        0.7225,
+        1
+      ],
+      "completed": 10,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 42.66,
+      "mean_distance_m": 82.665,
+      "mean_step_p95_ms": 27.114
+    },
+    {
+      "scenario": "pedestrian",
+      "scenario_name": "作业区行人横穿",
+      "policy": "no_shield",
+      "policy_name": "消融：关闭独立安全监控",
+      "n": 10,
+      "safe_success": 10,
+      "safe_success_wilson95": [
+        0.7225,
+        1
+      ],
+      "completed": 10,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 42.66,
+      "mean_distance_m": 82.665,
+      "mean_step_p95_ms": 30.104
+    },
+    {
+      "scenario": "pedestrian",
+      "scenario_name": "作业区行人横穿",
+      "policy": "bc_guarded",
+      "policy_name": "行为克隆基线＋安全监控",
+      "n": 10,
+      "safe_success": 9,
+      "safe_success_wilson95": [
+        0.5958,
+        0.9821
+      ],
+      "completed": 9,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 48.02,
+      "mean_distance_m": 77.091,
+      "mean_step_p95_ms": 27.59
+    },
+    {
+      "scenario": "parked",
+      "scenario_name": "违停车辆绕行",
+      "policy": "reactive",
+      "policy_name": "固定路径＋反应式制动",
+      "n": 10,
+      "safe_success": 0,
+      "safe_success_wilson95": [
+        0,
+        0.2775
+      ],
+      "completed": 0,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 110.0,
+      "mean_distance_m": 28.081,
+      "mean_step_p95_ms": 10.089
+    },
+    {
+      "scenario": "parked",
+      "scenario_name": "违停车辆绕行",
+      "policy": "shielded",
+      "policy_name": "环卫规划＋独立安全监控",
+      "n": 10,
+      "safe_success": 10,
+      "safe_success_wilson95": [
+        0.7225,
+        1
+      ],
+      "completed": 10,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 30.6,
+      "mean_distance_m": 84.261,
+      "mean_step_p95_ms": 6.746
+    },
+    {
+      "scenario": "parked",
+      "scenario_name": "违停车辆绕行",
+      "policy": "no_shield",
+      "policy_name": "消融：关闭独立安全监控",
+      "n": 10,
+      "safe_success": 10,
+      "safe_success_wilson95": [
+        0.7225,
+        1
+      ],
+      "completed": 10,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 30.6,
+      "mean_distance_m": 84.261,
+      "mean_step_p95_ms": 6.288
+    },
+    {
+      "scenario": "parked",
+      "scenario_name": "违停车辆绕行",
+      "policy": "bc_guarded",
+      "policy_name": "行为克隆基线＋安全监控",
+      "n": 10,
+      "safe_success": 10,
+      "safe_success_wilson95": [
+        0.7225,
+        1
+      ],
+      "completed": 10,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 33.4,
+      "mean_distance_m": 84.02,
+      "mean_step_p95_ms": 7.066
+    },
+    {
+      "scenario": "closure",
+      "scenario_name": "服务道路临时封闭",
+      "policy": "reactive",
+      "policy_name": "固定路径＋反应式制动",
+      "n": 10,
+      "safe_success": 0,
+      "safe_success_wilson95": [
+        0,
+        0.2775
+      ],
+      "completed": 0,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 110.0,
+      "mean_distance_m": 39.153,
+      "mean_step_p95_ms": 5.612
+    },
+    {
+      "scenario": "closure",
+      "scenario_name": "服务道路临时封闭",
+      "policy": "shielded",
+      "policy_name": "环卫规划＋独立安全监控",
+      "n": 10,
+      "safe_success": 10,
+      "safe_success_wilson95": [
+        0.7225,
+        1
+      ],
+      "completed": 10,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 67.0,
+      "mean_distance_m": 89.925,
+      "mean_step_p95_ms": 10.576
+    },
+    {
+      "scenario": "closure",
+      "scenario_name": "服务道路临时封闭",
+      "policy": "no_shield",
+      "policy_name": "消融：关闭独立安全监控",
+      "n": 10,
+      "safe_success": 10,
+      "safe_success_wilson95": [
+        0.7225,
+        1
+      ],
+      "completed": 10,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 67.0,
+      "mean_distance_m": 89.925,
+      "mean_step_p95_ms": 10.313
+    },
+    {
+      "scenario": "closure",
+      "scenario_name": "服务道路临时封闭",
+      "policy": "bc_guarded",
+      "policy_name": "行为克隆基线＋安全监控",
+      "n": 10,
+      "safe_success": 0,
+      "safe_success_wilson95": [
+        0,
+        0.2775
+      ],
+      "completed": 0,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 110.0,
+      "mean_distance_m": 47.16,
+      "mean_step_p95_ms": 10.12
+    },
+    {
+      "scenario": "signal",
+      "scenario_name": "路口红灯等待",
+      "policy": "reactive",
+      "policy_name": "固定路径＋反应式制动",
+      "n": 10,
+      "safe_success": 0,
+      "safe_success_wilson95": [
+        0,
+        0.2775
+      ],
+      "completed": 10,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 10,
+      "mean_time_s": 30.68,
+      "mean_distance_m": 83.993,
+      "mean_step_p95_ms": 6.901
+    },
+    {
+      "scenario": "signal",
+      "scenario_name": "路口红灯等待",
+      "policy": "shielded",
+      "policy_name": "环卫规划＋独立安全监控",
+      "n": 10,
+      "safe_success": 10,
+      "safe_success_wilson95": [
+        0.7225,
+        1
+      ],
+      "completed": 10,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 34.1,
+      "mean_distance_m": 82.718,
+      "mean_step_p95_ms": 9.017
+    },
+    {
+      "scenario": "signal",
+      "scenario_name": "路口红灯等待",
+      "policy": "no_shield",
+      "policy_name": "消融：关闭独立安全监控",
+      "n": 10,
+      "safe_success": 10,
+      "safe_success_wilson95": [
+        0.7225,
+        1
+      ],
+      "completed": 10,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 33.5,
+      "mean_distance_m": 82.633,
+      "mean_step_p95_ms": 8.453
+    },
+    {
+      "scenario": "signal",
+      "scenario_name": "路口红灯等待",
+      "policy": "bc_guarded",
+      "policy_name": "行为克隆基线＋安全监控",
+      "n": 10,
+      "safe_success": 10,
+      "safe_success_wilson95": [
+        0.7225,
+        1
+      ],
+      "completed": 10,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 34.68,
+      "mean_distance_m": 82.94,
+      "mean_step_p95_ms": 9.974
+    },
+    {
+      "scenario": "sensor_stale",
+      "scenario_name": "传感器陈旧故障",
+      "policy": "reactive",
+      "policy_name": "固定路径＋反应式制动",
+      "n": 10,
+      "safe_success": 0,
+      "safe_success_wilson95": [
+        0,
+        0.2775
+      ],
+      "completed": 0,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 110.0,
+      "mean_distance_m": 31.281,
+      "mean_step_p95_ms": 12.834
+    },
+    {
+      "scenario": "sensor_stale",
+      "scenario_name": "传感器陈旧故障",
+      "policy": "shielded",
+      "policy_name": "环卫规划＋独立安全监控",
+      "n": 10,
+      "safe_success": 8,
+      "safe_success_wilson95": [
+        0.4902,
+        0.9433
+      ],
+      "completed": 8,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 49.98,
+      "mean_distance_m": 73.442,
+      "mean_step_p95_ms": 15.855
+    },
+    {
+      "scenario": "sensor_stale",
+      "scenario_name": "传感器陈旧故障",
+      "policy": "no_shield",
+      "policy_name": "消融：关闭独立安全监控",
+      "n": 10,
+      "safe_success": 8,
+      "safe_success_wilson95": [
+        0.4902,
+        0.9433
+      ],
+      "completed": 8,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 46.24,
+      "mean_distance_m": 73.772,
+      "mean_step_p95_ms": 10.3
+    },
+    {
+      "scenario": "sensor_stale",
+      "scenario_name": "传感器陈旧故障",
+      "policy": "bc_guarded",
+      "policy_name": "行为克隆基线＋安全监控",
+      "n": 10,
+      "safe_success": 5,
+      "safe_success_wilson95": [
+        0.2366,
+        0.7634
+      ],
+      "completed": 5,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 74.28,
+      "mean_distance_m": 50.877,
+      "mean_step_p95_ms": 14.352
+    },
+    {
+      "scenario": "network_loss",
+      "scenario_name": "边缘链路退化",
+      "policy": "reactive",
+      "policy_name": "固定路径＋反应式制动",
+      "n": 10,
+      "safe_success": 0,
+      "safe_success_wilson95": [
+        0,
+        0.2775
+      ],
+      "completed": 0,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 110.0,
+      "mean_distance_m": 31.153,
+      "mean_step_p95_ms": 26.088
+    },
+    {
+      "scenario": "network_loss",
+      "scenario_name": "边缘链路退化",
+      "policy": "shielded",
+      "policy_name": "环卫规划＋独立安全监控",
+      "n": 10,
+      "safe_success": 9,
+      "safe_success_wilson95": [
+        0.5958,
+        0.9821
+      ],
+      "completed": 9,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 38.62,
+      "mean_distance_m": 79.059,
+      "mean_step_p95_ms": 28.033
+    },
+    {
+      "scenario": "network_loss",
+      "scenario_name": "边缘链路退化",
+      "policy": "no_shield",
+      "policy_name": "消融：关闭独立安全监控",
+      "n": 10,
+      "safe_success": 9,
+      "safe_success_wilson95": [
+        0.5958,
+        0.9821
+      ],
+      "completed": 9,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 38.62,
+      "mean_distance_m": 79.059,
+      "mean_step_p95_ms": 24.73
+    },
+    {
+      "scenario": "network_loss",
+      "scenario_name": "边缘链路退化",
+      "policy": "bc_guarded",
+      "policy_name": "行为克隆基线＋安全监控",
+      "n": 10,
+      "safe_success": 9,
+      "safe_success_wilson95": [
+        0.5958,
+        0.9821
+      ],
+      "completed": 9,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 40.64,
+      "mean_distance_m": 78.604,
+      "mean_step_p95_ms": 25.184
+    },
+    {
+      "scenario": "brake_fault",
+      "scenario_name": "制动效率突降",
+      "policy": "reactive",
+      "policy_name": "固定路径＋反应式制动",
+      "n": 10,
+      "safe_success": 0,
+      "safe_success_wilson95": [
+        0,
+        0.2775
+      ],
+      "completed": 0,
+      "collision_episodes": 0,
+      "offroad_episodes": 10,
+      "red_episodes": 0,
+      "mean_time_s": 110.0,
+      "mean_distance_m": 324.536,
+      "mean_step_p95_ms": 9.232
+    },
+    {
+      "scenario": "brake_fault",
+      "scenario_name": "制动效率突降",
+      "policy": "shielded",
+      "policy_name": "环卫规划＋独立安全监控",
+      "n": 10,
+      "safe_success": 10,
+      "safe_success_wilson95": [
+        0.7225,
+        1
+      ],
+      "completed": 10,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 44.3,
+      "mean_distance_m": 85.696,
+      "mean_step_p95_ms": 9.325
+    },
+    {
+      "scenario": "brake_fault",
+      "scenario_name": "制动效率突降",
+      "policy": "no_shield",
+      "policy_name": "消融：关闭独立安全监控",
+      "n": 10,
+      "safe_success": 10,
+      "safe_success_wilson95": [
+        0.7225,
+        1
+      ],
+      "completed": 10,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0,
+      "mean_time_s": 44.3,
+      "mean_distance_m": 85.696,
+      "mean_step_p95_ms": 13.768
+    },
+    {
+      "scenario": "brake_fault",
+      "scenario_name": "制动效率突降",
+      "policy": "bc_guarded",
+      "policy_name": "行为克隆基线＋安全监控",
+      "n": 10,
+      "safe_success": 0,
+      "safe_success_wilson95": [
+        0,
+        0.2775
+      ],
+      "completed": 0,
+      "collision_episodes": 0,
+      "offroad_episodes": 1,
+      "red_episodes": 0,
+      "mean_time_s": 110.0,
+      "mean_distance_m": 85.47,
+      "mean_step_p95_ms": 12.598
+    }
+  ],
+  "totals": [
+    {
+      "policy": "reactive",
+      "n": 90,
+      "safe_success": 10,
+      "collision_episodes": 10,
+      "offroad_episodes": 10,
+      "red_episodes": 10
+    },
+    {
+      "policy": "shielded",
+      "n": 90,
+      "safe_success": 87,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0
+    },
+    {
+      "policy": "no_shield",
+      "n": 90,
+      "safe_success": 87,
+      "collision_episodes": 0,
+      "offroad_episodes": 0,
+      "red_episodes": 0
+    },
+    {
+      "policy": "bc_guarded",
+      "n": 90,
+      "safe_success": 63,
+      "collision_episodes": 0,
+      "offroad_episodes": 1,
+      "red_episodes": 0
+    }
+  ],
+  "elapsed_seconds": 156.53,
+  "scope": "自建二维环卫服务道路闭环仿真；9类场景×10种子×4策略；无实车或公开自动驾驶数据集效果主张。",
+  "hardware": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+    "python": "3.12.10",
+    "workers": 4
+  },
+  "weights_sha256": "71747dd2f60ed24a70e3f5c0a1a5332f72704bb5ef4624f997c9fa6d746cb358",
+  "runs_sha256": "9689552aa1d46047bc15896351716337743fbb55f576e1c61e5864eae15e5d56",
+  "protocol_sha256": "93f0890e1532d7b443ce1105fcff6a4e5c73ba04d15b4049880ec06a5e972a36"
+}
