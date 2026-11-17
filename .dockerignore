@@ -1,0 +1,14 @@
+.git
+.env*
+assistant.local.json
+.venv
+**/__pycache__
+**/*.py[cod]
+**/*.sqlite3*
+**/*.log
+assistant_vendor
+legacy/.vendor
+legacy/data/public-benchmarks
+runtime
+evidence/replays
+evidence/round3_browser
