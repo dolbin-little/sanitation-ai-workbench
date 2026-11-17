@@ -1,0 +1,2810 @@
+{
+  "source": "synthetic",
+  "seeds": 30,
+  "tasks": 12,
+  "budget_seconds": 1.0,
+  "raw": [
+    {
+      "seed": 0,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 87.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 72.4
+          },
+          "objective": [
+            0.0,
+            18.0,
+            178.20167
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 53.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 6,
+            "runtime_ms": 62.2
+          },
+          "objective": [
+            0.0,
+            9.0,
+            104.23833
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 72.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 10,
+            "runtime_ms": 48.9
+          },
+          "objective": [
+            0.0,
+            15.0,
+            149.91
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 66.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 9,
+            "runtime_ms": 516.9
+          },
+          "objective": [
+            0.0,
+            13.5,
+            137.35333
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 1,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 99.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 68.4
+          },
+          "objective": [
+            0.0,
+            18.0,
+            190.725
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 67.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 8,
+            "runtime_ms": 60.5
+          },
+          "objective": [
+            0.0,
+            12.0,
+            131.12167
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 77.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 9,
+            "runtime_ms": 51.9
+          },
+          "objective": [
+            0.0,
+            13.5,
+            147.73167
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 62.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 181.6
+          },
+          "objective": [
+            0.0,
+            10.5,
+            118.86
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 2,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 95.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 68.2
+          },
+          "objective": [
+            0.0,
+            18.0,
+            188.375
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 52.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 5,
+            "runtime_ms": 57.7
+          },
+          "objective": [
+            0.0,
+            7.5,
+            96.02
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 95.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 49.2
+          },
+          "objective": [
+            0.0,
+            18.0,
+            188.375
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 63.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 174.7
+          },
+          "objective": [
+            0.0,
+            10.5,
+            121.875
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 3,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 102.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 85.7
+          },
+          "objective": [
+            0.0,
+            18.0,
+            192.14667
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 89.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 10,
+            "runtime_ms": 85.9
+          },
+          "objective": [
+            0.0,
+            15.0,
+            166.41833
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 102.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 86.2
+          },
+          "objective": [
+            0.0,
+            18.0,
+            192.14667
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 73.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 8,
+            "runtime_ms": 303.1
+          },
+          "objective": [
+            0.0,
+            12.0,
+            136.645
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 4,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 98.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 114.9
+          },
+          "objective": [
+            0.0,
+            18.0,
+            188.10333
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 63.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 93.7
+          },
+          "objective": [
+            0.0,
+            12.0,
+            120.53167
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 75.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 9,
+            "runtime_ms": 54.7
+          },
+          "objective": [
+            0.0,
+            13.5,
+            145.70167
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 62.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 238.2
+          },
+          "objective": [
+            0.0,
+            10.5,
+            119.12
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 5,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 102.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 108.9
+          },
+          "objective": [
+            0.0,
+            18.0,
+            186.64333
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 77.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 8,
+            "runtime_ms": 101.5
+          },
+          "objective": [
+            0.0,
+            12.0,
+            135.96167
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 95.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 11,
+            "runtime_ms": 89.7
+          },
+          "objective": [
+            0.0,
+            16.5,
+            172.995
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 58.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 6,
+            "runtime_ms": 309.2
+          },
+          "objective": [
+            0.0,
+            9.0,
+            104.22667
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 6,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 104.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 111.5
+          },
+          "objective": [
+            0.0,
+            18.0,
+            192.52333
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 74.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 8,
+            "runtime_ms": 101.4
+          },
+          "objective": [
+            0.0,
+            12.0,
+            135.32
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 80.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 9,
+            "runtime_ms": 53.7
+          },
+          "objective": [
+            0.0,
+            13.5,
+            148.76667
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 72.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 8,
+            "runtime_ms": 276.4
+          },
+          "objective": [
+            0.0,
+            12.0,
+            132.93333
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 7,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 106.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 112.6
+          },
+          "objective": [
+            0.0,
+            18.0,
+            195.95
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 63.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 6,
+            "runtime_ms": 95.4
+          },
+          "objective": [
+            0.0,
+            9.0,
+            112.495
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 70.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 8,
+            "runtime_ms": 79.9
+          },
+          "objective": [
+            0.0,
+            12.0,
+            132.09333
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 52.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 5,
+            "runtime_ms": 283.5
+          },
+          "objective": [
+            0.0,
+            9.0,
+            94.41667
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 8,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 96.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 103.5
+          },
+          "objective": [
+            0.0,
+            18.0,
+            188.39667
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 56.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 6,
+            "runtime_ms": 74.8
+          },
+          "objective": [
+            0.0,
+            9.0,
+            106.74333
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 74.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 9,
+            "runtime_ms": 83.7
+          },
+          "objective": [
+            0.0,
+            13.5,
+            145.1
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 69.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 8,
+            "runtime_ms": 249.8
+          },
+          "objective": [
+            0.0,
+            12.0,
+            134.915
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 9,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 105.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 111.3
+          },
+          "objective": [
+            0.0,
+            18.0,
+            197.42167
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 70.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 84.2
+          },
+          "objective": [
+            0.0,
+            10.5,
+            127.08667
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 88.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 10,
+            "runtime_ms": 72.5
+          },
+          "objective": [
+            0.0,
+            15.0,
+            167.01333
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 79.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 8,
+            "runtime_ms": 287.3
+          },
+          "objective": [
+            0.0,
+            12.0,
+            144.685
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 10,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 98.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 117.8
+          },
+          "objective": [
+            0.0,
+            18.0,
+            186.24333
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 65.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 102.4
+          },
+          "objective": [
+            0.0,
+            12.0,
+            120.675
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 68.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 8,
+            "runtime_ms": 80.6
+          },
+          "objective": [
+            0.0,
+            12.0,
+            130.15333
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 54.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 6,
+            "runtime_ms": 297.7
+          },
+          "objective": [
+            0.0,
+            9.0,
+            103.11667
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 11,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 106.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 110.3
+          },
+          "objective": [
+            0.0,
+            18.0,
+            195.13667
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 68.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 89.8
+          },
+          "objective": [
+            0.0,
+            10.5,
+            123.86333
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 89.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 10,
+            "runtime_ms": 82.0
+          },
+          "objective": [
+            0.0,
+            15.0,
+            164.52833
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 70.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 258.7
+          },
+          "objective": [
+            0.0,
+            10.5,
+            124.42
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 12,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 89.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 102.2
+          },
+          "objective": [
+            0.0,
+            18.0,
+            178.50833
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 65.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 8,
+            "runtime_ms": 65.9
+          },
+          "objective": [
+            0.0,
+            12.0,
+            127.99833
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 75.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 10,
+            "runtime_ms": 53.7
+          },
+          "objective": [
+            0.0,
+            15.0,
+            150.02167
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 53.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 6,
+            "runtime_ms": 231.8
+          },
+          "objective": [
+            0.0,
+            9.0,
+            103.21833
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 13,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 94.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 78.6
+          },
+          "objective": [
+            0.0,
+            18.0,
+            180.24667
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 61.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 109.1
+          },
+          "objective": [
+            0.0,
+            10.5,
+            115.12167
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 87.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 11,
+            "runtime_ms": 84.7
+          },
+          "objective": [
+            0.0,
+            16.5,
+            166.305
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 47.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 5,
+            "runtime_ms": 288.1
+          },
+          "objective": [
+            0.0,
+            7.5,
+            88.34833
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 14,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 88.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 105.2
+          },
+          "objective": [
+            0.0,
+            18.0,
+            175.66667
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 55.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 82.1
+          },
+          "objective": [
+            0.0,
+            10.5,
+            109.02167
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 52.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 59.5
+          },
+          "objective": [
+            0.0,
+            10.5,
+            106.39667
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 43.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 5,
+            "runtime_ms": 243.2
+          },
+          "objective": [
+            0.0,
+            7.5,
+            83.73833
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 15,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 107.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 89.7
+          },
+          "objective": [
+            0.0,
+            18.0,
+            195.38833
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 64.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 6,
+            "runtime_ms": 70.8
+          },
+          "objective": [
+            0.0,
+            10.5,
+            112.26333
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 65.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 77.8
+          },
+          "objective": [
+            0.0,
+            10.5,
+            119.285
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 66.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 284.1
+          },
+          "objective": [
+            0.0,
+            10.5,
+            121.25333
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 16,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 98.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 120.7
+          },
+          "objective": [
+            0.0,
+            18.0,
+            188.01333
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 69.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 91.9
+          },
+          "objective": [
+            0.0,
+            10.5,
+            127.03167
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 84.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 10,
+            "runtime_ms": 81.9
+          },
+          "objective": [
+            0.0,
+            15.0,
+            161.05
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 64.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 285.9
+          },
+          "objective": [
+            0.0,
+            10.5,
+            120.24667
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 17,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 92.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 122.6
+          },
+          "objective": [
+            0.0,
+            18.0,
+            180.35667
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 64.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 108.7
+          },
+          "objective": [
+            0.0,
+            10.5,
+            119.6
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 85.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 11,
+            "runtime_ms": 86.8
+          },
+          "objective": [
+            0.0,
+            16.5,
+            167.14167
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 65.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 302.8
+          },
+          "objective": [
+            0.0,
+            10.5,
+            121.925
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 18,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 95.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 110.9
+          },
+          "objective": [
+            0.0,
+            18.0,
+            185.96833
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 67.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 8,
+            "runtime_ms": 103.2
+          },
+          "objective": [
+            0.0,
+            12.0,
+            131.91833
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 73.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 9,
+            "runtime_ms": 78.8
+          },
+          "objective": [
+            0.0,
+            13.5,
+            144.03833
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 62.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 279.0
+          },
+          "objective": [
+            0.0,
+            10.5,
+            119.70333
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 19,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 92.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 105.6
+          },
+          "objective": [
+            0.0,
+            18.0,
+            180.67333
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 49.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 5,
+            "runtime_ms": 103.2
+          },
+          "objective": [
+            0.0,
+            7.5,
+            91.48833
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 57.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 79.5
+          },
+          "objective": [
+            0.0,
+            10.5,
+            113.00167
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 42.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 5,
+            "runtime_ms": 279.4
+          },
+          "objective": [
+            0.0,
+            7.5,
+            83.80667
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 20,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 97.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 100.7
+          },
+          "objective": [
+            0.0,
+            18.0,
+            181.48167
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 57.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 6,
+            "runtime_ms": 99.3
+          },
+          "objective": [
+            0.0,
+            9.0,
+            103.14833
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 74.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 9,
+            "runtime_ms": 84.3
+          },
+          "objective": [
+            0.0,
+            13.5,
+            139.23
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 68.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 8,
+            "runtime_ms": 289.4
+          },
+          "objective": [
+            0.0,
+            12.0,
+            126.40333
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 21,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 91.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 118.8
+          },
+          "objective": [
+            0.0,
+            18.0,
+            177.985
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 60.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 107.4
+          },
+          "objective": [
+            0.0,
+            10.5,
+            115.25333
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 70.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 9,
+            "runtime_ms": 77.9
+          },
+          "objective": [
+            0.0,
+            13.5,
+            138.11667
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 64.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 8,
+            "runtime_ms": 288.4
+          },
+          "objective": [
+            0.0,
+            12.0,
+            125.12
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 22,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 98.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 139.1
+          },
+          "objective": [
+            0.0,
+            18.0,
+            185.07333
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 59.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 6,
+            "runtime_ms": 77.2
+          },
+          "objective": [
+            0.0,
+            9.0,
+            107.47167
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 67.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 8,
+            "runtime_ms": 68.6
+          },
+          "objective": [
+            0.0,
+            12.0,
+            127.085
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 61.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 6,
+            "runtime_ms": 195.5
+          },
+          "objective": [
+            0.0,
+            9.0,
+            107.90167
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 23,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 107.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 88.3
+          },
+          "objective": [
+            0.0,
+            18.0,
+            194.73833
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 62.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 6,
+            "runtime_ms": 68.2
+          },
+          "objective": [
+            0.0,
+            9.0,
+            110.08667
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 81.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 9,
+            "runtime_ms": 67.7
+          },
+          "objective": [
+            0.0,
+            13.5,
+            148.10833
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 51.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 4,
+            "runtime_ms": 238.0
+          },
+          "objective": [
+            0.0,
+            6.0,
+            86.40833
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 24,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 99.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 113.8
+          },
+          "objective": [
+            0.0,
+            18.0,
+            186.94833
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 78.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 9,
+            "runtime_ms": 83.7
+          },
+          "objective": [
+            0.0,
+            13.5,
+            146.99
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 85.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 10,
+            "runtime_ms": 76.2
+          },
+          "objective": [
+            0.0,
+            15.0,
+            158.025
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 71.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 350.8
+          },
+          "objective": [
+            0.0,
+            11.096,
+            125.745
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 25,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 104.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 87.7
+          },
+          "objective": [
+            0.0,
+            18.0,
+            193.30667
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 1,
+            "late_minutes": 10.4,
+            "deadhead_km": 51.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 5,
+            "runtime_ms": 77.0
+          },
+          "objective": [
+            11.968,
+            22.94,
+            94.18833
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 83.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 9,
+            "runtime_ms": 79.9
+          },
+          "objective": [
+            0.0,
+            13.5,
+            152.375
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 62.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 6,
+            "runtime_ms": 275.5
+          },
+          "objective": [
+            0.0,
+            9.0,
+            110.63667
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 26,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 101.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 114.6
+          },
+          "objective": [
+            0.0,
+            18.0,
+            187.265
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 72.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 8,
+            "runtime_ms": 81.1
+          },
+          "objective": [
+            0.0,
+            12.0,
+            131.77333
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 86.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 10,
+            "runtime_ms": 75.1
+          },
+          "objective": [
+            0.0,
+            15.0,
+            158.96333
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 66.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 258.6
+          },
+          "objective": [
+            0.0,
+            10.86,
+            119.13667
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 27,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 101.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 123.8
+          },
+          "objective": [
+            0.0,
+            18.0,
+            187.025
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 64.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 89.1
+          },
+          "objective": [
+            0.0,
+            10.5,
+            116.99
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 90.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 11,
+            "runtime_ms": 75.7
+          },
+          "objective": [
+            0.0,
+            16.5,
+            168.86
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 68.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 8,
+            "runtime_ms": 255.1
+          },
+          "objective": [
+            0.0,
+            12.0,
+            126.95333
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 28,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 98.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 101.5
+          },
+          "objective": [
+            0.0,
+            18.0,
+            186.57667
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 62.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 94.9
+          },
+          "objective": [
+            0.0,
+            10.5,
+            116.79667
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 72.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 9,
+            "runtime_ms": 64.6
+          },
+          "objective": [
+            0.0,
+            13.5,
+            138.64
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 58.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 6,
+            "runtime_ms": 280.1
+          },
+          "objective": [
+            0.0,
+            9.0,
+            105.57333
+          ],
+          "shield": true
+        }
+      }
+    },
+    {
+      "seed": 29,
+      "tasks": 12,
+      "results": {
+        "fixed": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 107.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 12,
+            "runtime_ms": 79.3
+          },
+          "objective": [
+            0.0,
+            18.0,
+            195.015
+          ],
+          "shield": true
+        },
+        "nearest": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 48.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 4,
+            "runtime_ms": 92.5
+          },
+          "objective": [
+            0.0,
+            14.94,
+            83.41667
+          ],
+          "shield": true
+        },
+        "adaptive": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 78.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 9,
+            "runtime_ms": 86.3
+          },
+          "objective": [
+            0.0,
+            13.5,
+            144.46667
+          ],
+          "shield": true
+        },
+        "halns": {
+          "metrics": {
+            "scheduled": 12,
+            "unassigned": 0,
+            "deferred": 0,
+            "late_tasks": 0,
+            "late_minutes": 0,
+            "deadhead_km": 66.0,
+            "service_km": 2.0,
+            "changes": 0,
+            "vehicles_used": 7,
+            "runtime_ms": 281.6
+          },
+          "objective": [
+            0.0,
+            10.5,
+            119.29333
+          ],
+          "shield": true
+        }
+      }
+    }
+  ],
+  "summary": {
+    "fixed": {
+      "scheduled": {
+        "mean": 12,
+        "median": 12.0,
+        "ci95": [
+          12,
+          12
+        ]
+      },
+      "unassigned": {
+        "mean": 0,
+        "median": 0.0,
+        "ci95": [
+          0,
+          0
+        ]
+      },
+      "late_tasks": {
+        "mean": 0,
+        "median": 0.0,
+        "ci95": [
+          0,
+          0
+        ]
+      },
+      "deadhead_km": {
+        "mean": 98.53333333333333,
+        "median": 98.0,
+        "ci95": [
+          96.46666666666667,
+          100.53333333333333
+        ]
+      },
+      "runtime_ms": {
+        "mean": 102.95333333333333,
+        "median": 107.25,
+        "ci95": [
+          96.76,
+          109.32333333333334
+        ]
+      }
+    },
+    "nearest": {
+      "scheduled": {
+        "mean": 12,
+        "median": 12.0,
+        "ci95": [
+          12,
+          12
+        ]
+      },
+      "unassigned": {
+        "mean": 0,
+        "median": 0.0,
+        "ci95": [
+          0,
+          0
+        ]
+      },
+      "late_tasks": {
+        "mean": 0.03333333333333333,
+        "median": 0.0,
+        "ci95": [
+          0,
+          0.1
+        ]
+      },
+      "deadhead_km": {
+        "mean": 63.46666666666667,
+        "median": 63.5,
+        "ci95": [
+          60.36666666666667,
+          66.53333333333333
+        ]
+      },
+      "runtime_ms": {
+        "mean": 87.16,
+        "median": 89.44999999999999,
+        "ci95": [
+          82.02666666666667,
+          92.19333333333333
+        ]
+      }
+    },
+    "adaptive": {
+      "scheduled": {
+        "mean": 12,
+        "median": 12.0,
+        "ci95": [
+          12,
+          12
+        ]
+      },
+      "unassigned": {
+        "mean": 0,
+        "median": 0.0,
+        "ci95": [
+          0,
+          0
+        ]
+      },
+      "late_tasks": {
+        "mean": 0,
+        "median": 0.0,
+        "ci95": [
+          0,
+          0
+        ]
+      },
+      "deadhead_km": {
+        "mean": 78.3,
+        "median": 77.5,
+        "ci95": [
+          74.6,
+          82.4
+        ]
+      },
+      "runtime_ms": {
+        "mean": 73.06666666666666,
+        "median": 77.85,
+        "ci95": [
+          68.23333333333333,
+          77.10333333333334
+        ]
+      }
+    },
+    "halns": {
+      "scheduled": {
+        "mean": 12,
+        "median": 12.0,
+        "ci95": [
+          12,
+          12
+        ]
+      },
+      "unassigned": {
+        "mean": 0,
+        "median": 0.0,
+        "ci95": [
+          0,
+          0
+        ]
+      },
+      "late_tasks": {
+        "mean": 0,
+        "median": 0.0,
+        "ci95": [
+          0,
+          0
+        ]
+      },
+      "deadhead_km": {
+        "mean": 61.9,
+        "median": 63.5,
+        "ci95": [
+          58.86666666666667,
+          65.06666666666666
+        ]
+      },
+      "runtime_ms": {
+        "mean": 276.14666666666665,
+        "median": 279.75,
+        "ci95": [
+          257.02666666666664,
+          299.26666666666665
+        ]
+      }
+    }
+  },
+  "paired": [
+    {
+      "baseline": "fixed",
+      "metric": "F1",
+      "delta": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "p": 1.0,
+      "paired_effect_dz": null,
+      "holm_p": 1
+    },
+    {
+      "baseline": "nearest",
+      "metric": "F1",
+      "delta": {
+        "mean": -0.3989333333333333,
+        "median": 0.0,
+        "ci95": [
+          -1.1968,
+          0.0
+        ]
+      },
+      "p": 0.31731050786291415,
+      "paired_effect_dz": -0.18257418583505536,
+      "holm_p": 0.9519315235887424
+    },
+    {
+      "baseline": "adaptive",
+      "metric": "F1",
+      "delta": {
+        "mean": 0.0,
+        "median": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ]
+      },
+      "p": 1.0,
+      "paired_effect_dz": null,
+      "holm_p": 1
+    }
+  ],
+  "friedman": {
+    "statistic": 3.000000000000111,
+    "p": 0.3916251762710736
+  },
+  "limitations": "同硬件/预算的合成静态配对试验。不是公开基准、真实历史回放、现场试验或全套消融。时间预算造成迭代数差异，原始记录保留。"
+}
