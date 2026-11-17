@@ -16,6 +16,11 @@ ROOT = Path(__file__).resolve().parent
 
 def handler(store):
     class Handler(BaseHTTPRequestHandler):
+        def origin_allowed(self):
+            origin = self.headers.get("Origin")
+            port = self.server.server_port
+            return origin in (None, "", f"http://127.0.0.1:{port}", f"http://localhost:{port}")
+
         def send(self, data, status=200, content_type="application/json; charset=utf-8"):
             body = json.dumps(data,ensure_ascii=False,allow_nan=False).encode() if isinstance(data,(dict,list)) else data
             self.send_response(status)
@@ -58,8 +63,7 @@ def handler(store):
             return self.send(f.read_bytes(),content_type=(mimetypes.guess_type(str(f))[0] or "application/octet-stream")+"; charset=utf-8")
 
         def do_POST(self):
-            origin = self.headers.get("Origin")
-            if origin and origin not in (f"http://127.0.0.1:{self.server.server_port}",f"http://localhost:{self.server.server_port}"):
+            if not self.origin_allowed():
                 return self.send({"error":"不接受跨站请求"},403)
             if self.headers.get("Content-Type","").split(";")[0] != "application/json":
                 return self.send({"error":"必须使用 application/json"},415)

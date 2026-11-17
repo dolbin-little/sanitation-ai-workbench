@@ -99,7 +99,7 @@ def handler(fleet,drive):
             return super().do_GET()
         def do_POST(self):
             if self.path.startswith('/api/assistant/'):
-                if self.headers.get('Origin') not in (None,f'http://127.0.0.1:{self.server.server_port}',f'http://localhost:{self.server.server_port}'):return self.send({'error':'不接受跨站请求'},403)
+                if not self.origin_allowed():return self.send({'error':'不接受跨站请求'},403)
                 if self.headers.get('Content-Type','').split(';')[0]!='application/json':return self.send({'error':'须使用JSON'},415)
                 try:
                     n=int(self.headers.get('Content-Length','0'))
@@ -109,7 +109,7 @@ def handler(fleet,drive):
                     return self.send(assistant.call(self.path.rsplit('/',1)[-1],b))
                 except (ValueError,KeyError,TypeError) as e:return self.send({'error':str(e)},400)
             if not self.path.startswith('/api/drive/'):return super().do_POST()
-            if self.headers.get('Origin') not in (None,f'http://127.0.0.1:{self.server.server_port}',f'http://localhost:{self.server.server_port}'):return self.send({'error':'不接受跨站请求'},403)
+            if not self.origin_allowed():return self.send({'error':'不接受跨站请求'},403)
             if self.headers.get('Content-Type','').split(';')[0]!='application/json':return self.send({'error':'须使用application/json'},415)
             try:
                 n=int(self.headers.get('Content-Length','0'))
