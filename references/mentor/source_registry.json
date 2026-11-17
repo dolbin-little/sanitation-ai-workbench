@@ -1,0 +1,544 @@
+{
+  "schema_version": "1.1",
+  "reviewed_on": "2026-10-30",
+  "purpose": "环卫智枢低速清扫/收运车辆执行仿真中参考文献技术的来源核对。保留公开学术署名，不包含简历、联系方式或私人信息。",
+  "scope": "仅环卫平台；车端安全制动、定位与控制独立于可选边缘计算。",
+  "status_legend": {
+    "used_independent_partial_adaptation": "已据drive/edge.py静态核对，独立实现部分简化模型或子问题；不是完整论文或专利复现",
+    "used_principle_only": "仅借鉴局部设计原则，已据drive/edge.py核对；未实现原专利完整流程",
+    "inspected_not_selected": "已核对来源和方法，本版不选用",
+    "public_reference_not_reproduced": "公开文献已核对，无训练/数据/权重复现",
+    "related_prior_work_not_separately_implemented": "相关专利背景，本版不单独计为采用或完整实施"
+  },
+  "distribution_note": "本目录只存来源元数据与独立归纳，不复制IEEE论文全文、参考文献简历或专利证书。持有论文/证书不等于获得专利实施许可；这里不作实施自由或法律状态结论。",
+  "sources": [
+    {
+      "id": "mentor-tsc-2023-priority",
+      "type": "journal",
+      "title": "Priority-Based Offloading Optimization in Cloud-Edge Collaborative Computing",
+      "authors": [
+        "Zhenli He",
+        "Yanan Xu",
+        "Mingxiong Zhao",
+        "Wei Zhou",
+        "Keqin Li"
+      ],
+      "venue": "IEEE Transactions on Services Computing",
+      "year": 2023,
+      "volume": 16,
+      "issue": 6,
+      "pages": "3906–3919",
+      "doi": "10.1109/TSC.2023.3296601",
+      "urls": [
+        "https://doi.org/10.1109/TSC.2023.3296601",
+        "https://ieeexplore.ieee.org/document/10185617/",
+        "https://www.cs.newpaltz.edu/~lik/publications/Zhenli-He-IEEE-TSC-2023"
+      ],
+      "evidence": {
+        "kind": "local_full_paper_and_extracted_text",
+        "sha256": "82caa0651b2707b0621a330afbcc615b13aca513fc884b4caaa9c9ad9f03436d",
+        "pdf_pages": 14,
+        "checked_sections": [
+          "III-A/B: mandatory local specific tasks vs generic offloadable tasks; DS1/2/3",
+          "IV-A pp.3910–3911: queue delays, Eq.(1)–(14)",
+          "IV-B/C pp.3911–3912: monetary cost Eq.(15), problem constraints",
+          "V pp.3912–3915: KKT Eq.(17)–(28), Algorithms 1–7",
+          "VI/VII state that further algorithm details are in online supplement"
+        ]
+      },
+      "original_method": "M/G/1移动设备、M/G/m边缘与云节点，混合优先级排队；优化平均响应时间、货币成本或二者乘积；KKT与嵌套二分。",
+      "adaptation": "已在drive/edge.py的priority_wait中实现多优先级非抢占M/G/1平均等待估计，取确定服务时间二阶矩E[S_i²]=s_i²，并在rho>=0.95时返回不可用；schedule把制动/转向与独立安全监控标为onboard，仅对三项可选环卫任务按合成RTT、上传、计算和排队时延做设定截止期门控。这是独立的部分简化改编，未实现原文M/G/m多节点、成本约束优化或Algorithms 1–7。",
+      "implementation": {
+        "file": "drive/edge.py",
+        "functions": [
+          "priority_wait",
+          "schedule"
+        ],
+        "lines": [
+          7,
+          28
+        ],
+        "boundary": "0.95是本平台工程阈值；泊松到达/确定服务时间和网络参数为合成假设。将CPU份额导出的处理时间输入单服务台优先队列属于仿真近似，不等于原文完整平台模型或最坏时延分析。"
+      },
+      "formula_locations": [
+        "IV-A p.3910: DS2本地一般任务平均等待时延（未编号）；Eq.(1)为DS3响应时延",
+        "IV-A p.3911 Eq.(14): 卸载任务加权平均响应时间",
+        "IV-B p.3912 Eq.(15): 加权平均货币成本",
+        "V pp.3912–3915 Eq.(17)–(28), Algorithms 1–7"
+      ],
+      "use_status": "used_independent_partial_adaptation",
+      "must_not_claim": [
+        "平均时延或ρ<1保证单次任务截止期",
+        "已复现补充材料全部方法",
+        "车载安全认证或制动正确性由此论文给出",
+        "本平台实测性能等于论文数值结果"
+      ]
+    },
+    {
+      "id": "mentor-tcc-2025-game",
+      "type": "journal",
+      "title": "Joint Computation Offloading and Resource Allocation in Mobile-Edge Cloud Computing: A Two-Layer Game Approach",
+      "authors": [
+        "Zhenli He",
+        "Ying Guo",
+        "Xiaolong Zhai",
+        "Mingxiong Zhao",
+        "Wei Zhou",
+        "Keqin Li"
+      ],
+      "venue": "IEEE Transactions on Cloud Computing",
+      "year": 2025,
+      "volume": 13,
+      "issue": 1,
+      "pages": "411–428",
+      "doi": "10.1109/TCC.2025.3538090",
+      "urls": [
+        "https://doi.org/10.1109/TCC.2025.3538090",
+        "https://cs.newpaltz.edu/~lik/publications/Zhenli-He-IEEE-TCC-2025"
+      ],
+      "evidence": {
+        "kind": "local_full_paper_and_extracted_text",
+        "sha256": "69250645a32eaa79034de5694cf81dcfaa7e0e1d0b7e4c13616ab73a2c0fef6e",
+        "pdf_pages": 18,
+        "checked_sections": [
+          "III pp.414–416: divisible task and resource model",
+          "IV pp.416–417 Eq.(6)/(7): MD and ES average-latency objectives",
+          "V pp.418–421 Eq.(8)–(15), Algorithms 1–7: numerical best responses and iterative equilibrium",
+          "VI: numerical examples/benchmarks"
+        ]
+      },
+      "original_method": "第一层多个移动设备竞争边缘资源；第二层多个边缘服务器联合选择云转发比例和CPU分配。用KKT/二分求最佳响应并迭代。",
+      "adaptation": "已在drive/edge.py的sqrt_allocation实现f_i=F*sqrt(a_i)/sum_k sqrt(a_k)，schedule取a_i=weight_i*cycles_g_i，F=edge_ghz。该式由固定任务与固定卸载下min sum_i(a_i/f_i)、sum_i f_i<=F的简化子问题独立推导，与原文CPU资源预算和a_i/f_i结构对应；原文正文用KKT与二分，完整两层迭代和云转发比例未实现。",
+      "implementation": {
+        "file": "drive/edge.py",
+        "functions": [
+          "sqrt_allocation",
+          "schedule"
+        ],
+        "lines": [
+          18,
+          28
+        ],
+        "boundary": "系数及预算必须为正；资源分配是合成边缘CPU份额，不是实机CPU占用。当前在门控前为全部可选任务分配，不因任务延后而再次求解，也未实现多参与者最佳响应或纳什均衡。"
+      },
+      "formula_locations": [
+        "III-E/F p.416 Eq.(2)–(5): 数据传输与计算时延",
+        "IV-B p.417 Eq.(7): ES加权平均时延，含a_i/f_i形式",
+        "V-B p.419 Eq.(10)–(15), Algorithms 3–4 pp.420: CPU分配子问题",
+        "V-C pp.420–421 Algorithms 6–7: 完整迭代"
+      ],
+      "use_status": "used_independent_partial_adaptation",
+      "must_not_claim": [
+        "单次按负载比例分配就是纳什均衡",
+        "不可分的感知帧可任意按bit切分且没有同步成本",
+        "云计算资源实际无限",
+        "平方根封闭式是论文原算法7"
+      ]
+    },
+    {
+      "id": "mentor-algorithms-2024-migration",
+      "type": "journal",
+      "title": "Joint Optimization of Service Migration and Resource Allocation in Mobile Edge–Cloud Computing",
+      "authors": [
+        "Zhenli He",
+        "Liheng Li",
+        "Ziqi Lin",
+        "Yunyun Dong",
+        "Jianglong Qin",
+        "Keqin Li"
+      ],
+      "venue": "Algorithms",
+      "year": 2024,
+      "volume": 17,
+      "issue": 8,
+      "article": 370,
+      "doi": "10.3390/a17080370",
+      "urls": [
+        "https://doi.org/10.3390/a17080370",
+        "https://www.mdpi.com/1999-4893/17/8/370",
+        "https://cs.newpaltz.edu/~lik/publications/Zhenli-He-A-2024"
+      ],
+      "evidence": {
+        "kind": "local_full_paper_and_extracted_text",
+        "sha256": "310383dcd0b0ec696908b7ff0b9a8289bb74ac99d75b076a4229dac3efedf81e",
+        "pdf_pages": 23,
+        "checked_sections": [
+          "3 pp.6–11: task remaining time/data, migration, resource model",
+          "4 pp.11–14 Eq.(18)–(31), Algorithm 1: MDP/A2C training",
+          "5 pp.14–21: simulation settings, failure and latency metrics"
+        ]
+      },
+      "original_method": "迁移暂停、同步、恢复时延相加；将剩余数据/截止期/接入点/驻留点组成MDP状态，以迁移目标与CPU份额为动作，用A2C训练策略。",
+      "formula_locations": [
+        "3.2 p.7 Eq.(3): D=h+w+r",
+        "3.2 p.8 Eq.(4)–(6): suspension, restoration, synchronization",
+        "3.3 p.9 Eq.(14)/(15): 剩余工作量与CPU预算",
+        "4 pp.11–14 Eq.(18)–(31) and Algorithm 1"
+      ],
+      "adaptation": "当前无服务实例迁移训练；仅作为未来跨环卫片区服务连续性的候选研究。",
+      "use_status": "inspected_not_selected",
+      "must_not_claim": [
+        "选择最近边缘站就是A2C",
+        "已有训练好的迁移神经网络",
+        "任务超时后转云即可满足原截止期"
+      ]
+    },
+    {
+      "id": "mentor-iet-2020-tsr",
+      "type": "journal",
+      "title": "Traffic sign recognition by combining global and local features based on semi-supervised classification",
+      "authors": [
+        "Zhenli He",
+        "Fengtao Nan",
+        "Xinfa Li",
+        "Shin-Jye Lee",
+        "Yun Yang"
+      ],
+      "venue": "IET Intelligent Transport Systems",
+      "year": 2020,
+      "volume": 14,
+      "issue": 5,
+      "pages": "323–330",
+      "doi": "10.1049/iet-its.2019.0409",
+      "urls": [
+        "https://doi.org/10.1049/iet-its.2019.0409",
+        "https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/iet-its.2019.0409"
+      ],
+      "evidence": {
+        "kind": "publisher_full_text_inspected_online",
+        "checked_sections": [
+          "3: Canny edge/HOG/colour histogram feature representations, feature fusion, tri-training",
+          "4: GTSRB evaluation, SVM base learner and GoogLeNet final classifier",
+          "5: computational demand and pseudo-label noise limitations"
+        ]
+      },
+      "original_method": "融合颜色直方图、HOG和边缘特征，使用半监督tri-training扩展标签样本，再训练分类网络并进行集成；论文面向交通标志分类。",
+      "adaptation": "本环卫执行仿真没有训练交通标志分类器；保留为感知学习资料。",
+      "use_status": "public_reference_not_reproduced",
+      "must_not_claim": [
+        "该论文是一般多目标检测器",
+        "仿真的几何障碍标签来自该论文训练模型",
+        "已使用GTSRB训练或复现精度"
+      ]
+    },
+    {
+      "id": "mentor-patent-priority",
+      "type": "patent",
+      "application_number": "202111480898.3",
+      "user_number": "2021114808983",
+      "publication_number": "CN114143317B",
+      "title": "面向跨云层移动边缘计算的多优先级计算卸载策略优化方法",
+      "inventors": [
+        "何臻力",
+        "许娅男",
+        "郭盈",
+        "徐子坤"
+      ],
+      "assignee": "云南大学",
+      "grant_publication_date": "2022-10-18",
+      "urls": [
+        "https://patents.google.com/patent/CN114143317B/zh"
+      ],
+      "evidence": {
+        "kind": "local_certificate_plus_full_granted_specification_and_claims",
+        "pdf_pages": 33,
+        "sha256": "82a71687d73166faebd7f771a5442ff0faf352a6a6e5a0edf9e8ad61e4cc8537",
+        "checked_sections": [
+          "权利要求1 S1–S4",
+          "说明书[0050]–[0058]：非抢占高低优先级、M/G/1、M/G/m及M/G/∞云模型",
+          "[0111]–[0152]及后续：响应时延约束下最小功耗、KKT与二分"
+        ]
+      },
+      "original_method": "高优先级特殊任务本地执行、一般任务可卸载；在平均响应时间与利用率约束下最小化设备功耗。",
+      "relation_to_paper": "与TSC2023存在优先级/排队/KKT思想交集；目标与云模型不同，不应说二者算法完全相同。",
+      "use_status": "related_prior_work_not_separately_implemented",
+      "adaptation": "drive/edge.py的schedule已采用关键任务固定车端、可选任务门控的局部原则，priority_wait采用非抢占优先级等待模型。未实现该专利的功耗最小化、M/G/m边缘与M/G/∞云节点联合优化、拉格朗日乘子与数值求解全流程。",
+      "implementation": {
+        "file": "drive/edge.py",
+        "functions": [
+          "priority_wait",
+          "schedule"
+        ],
+        "lines": [
+          7,
+          28
+        ],
+        "boundary": "仅局部原则与简化模型对应，不标注为该专利完整实施或复现。"
+      },
+      "must_not_claim": [
+        "持证即本平台获得实施许可",
+        "专利提供道路自动驾驶安全证明"
+      ],
+      "adoption_note": "对应论文/方法的相关专利背景；实际代码按公开论文局部独立改编，不额外计为一项采用专利。"
+    },
+    {
+      "id": "mentor-patent-placement",
+      "type": "patent",
+      "application_number": "202111426368.0",
+      "user_number": "2021114263680",
+      "publication_number": "CN114126066B",
+      "title": "面向MEC的服务器资源配置与选址联合优化决策方法",
+      "inventors": [
+        "何臻力",
+        "徐子坤",
+        "许娅男",
+        "郭盈"
+      ],
+      "assignee": "云南大学",
+      "grant_publication_date": "2022-07-19",
+      "urls": [
+        "https://patents.google.com/patent/CN114126066B/zh"
+      ],
+      "evidence": {
+        "kind": "local_certificate_plus_full_granted_specification_and_claims",
+        "pdf_pages": 33,
+        "sha256": "989d0b41098c5a0eda05f41f4a5f65b7d67ae2fe19eb352dc7c8543a8869748b",
+        "checked_sections": [
+          "权利要求1 S1–S5",
+          "说明书[0114]–[0125]：总运营成本与约束",
+          "[0126]–[0153]：染色体、可行性筛选、随机游走初始化、交叉变异",
+          "[0154]–[0212]：固定选址的拉格朗日配置求解和轮盘赌选择"
+        ]
+      },
+      "original_method": "以历史流量/站点位置/租金建立MEC选址与资源配置问题；外层遗传算法，内层拉格朗日与二分。",
+      "adaptation": "本版既定环卫作业站点与边缘节点不属于该联合选址优化。",
+      "use_status": "inspected_not_selected",
+      "must_not_claim": [
+        "在地图上放几个边缘点即已实现该专利"
+      ]
+    },
+    {
+      "id": "mentor-patent-game",
+      "type": "patent",
+      "application_number": "202211294607.6",
+      "user_number": "2022112946076",
+      "publication_number": "CN115696452B",
+      "title": "云边协同计算中的卸载决策与资源配置联合优化的博弈方法",
+      "inventors": [
+        "何臻力",
+        "郭盈",
+        "马冶达",
+        "徐子坤",
+        "于雪杰"
+      ],
+      "assignee": "云南大学",
+      "grant_publication_date": "2025-05-23",
+      "urls": [
+        "https://patents.google.com/patent/CN115696452B/zh"
+      ],
+      "evidence": {
+        "kind": "local_certificate_plus_full_granted_specification_and_claims",
+        "pdf_pages": 34,
+        "sha256": "85a6ba2e93b7a265345014c1cff4e11e20ac9151467f3895fcc43c37e27809e3",
+        "checked_sections": [
+          "权利要求1 S41–S43",
+          "说明书[0044]–[0088]：三层模型、分割卸载、计算资源预算",
+          "[0089]及后续：最优响应与总纳什均衡求解"
+        ]
+      },
+      "original_method": "多用户与多边缘服务器分别优化任务平均响应时间，联合卸载比例、云转发比例和CPU分配，数值最佳响应并迭代。",
+      "adaptation": "drive/edge.py的sqrt_allocation与schedule已使用固定卸载后的简化CPU预算思想，平方根封闭式由标准KKT独立推导。未实现该专利中用户与边缘服务器的最佳响应、云转发比例和总纳什均衡迭代。",
+      "use_status": "related_prior_work_not_separately_implemented",
+      "implementation": {
+        "file": "drive/edge.py",
+        "functions": [
+          "sqrt_allocation",
+          "schedule"
+        ],
+        "lines": [
+          18,
+          28
+        ],
+        "boundary": "只借鉴资源预算子问题的结构；该部分不等于专利完整方法或两层博弈复现。"
+      },
+      "must_not_claim": [
+        "资源条形图等于完整博弈求解",
+        "参考文献专利已授权本项目实施"
+      ],
+      "adoption_note": "对应论文/方法的相关专利背景；实际代码按公开论文局部独立改编，不额外计为一项采用专利。"
+    },
+    {
+      "id": "mentor-patent-detector",
+      "type": "patent",
+      "application_number": "202210230959.9",
+      "user_number": "2022102309599",
+      "publication_number": "CN114612825B",
+      "title": "基于边缘设备的目标检测方法",
+      "inventors": [
+        "何臻力",
+        "索珈顺",
+        "王汝欣",
+        "何婧"
+      ],
+      "assignee": "云南大学",
+      "grant_publication_date": "2024-03-19",
+      "urls": [
+        "https://patents.google.com/patent/CN114612825B/zh"
+      ],
+      "evidence": {
+        "kind": "local_certificate_plus_full_granted_specification_and_claims",
+        "pdf_pages": 9,
+        "sha256": "5c025cd0c542233d2cb4af9dcf55bed6c68d83691b1932fa6e948618d77841b8",
+        "checked_sections": [
+          "权利要求1 S1–S5与权利要求2",
+          "说明书[0005]–[0012]：时限筛选与性能指标优先级",
+          "[0025]–[0029]：长宽比、YOLOv3/VisDrone、Jetson Nano例子",
+          "[0043]–[0053]：优选、训练、部署与设备例子"
+        ]
+      },
+      "original_method": "构建推理框架×输入分辨率候选集，删除推断时间超过上限的候选，按时间/功耗/精度优先级筛选；再训练并部署模型。",
+      "adaptation": "drive/edge.py的choose_profile已实现latency_ms<=budget_ms的候选过滤；默认在可行候选中取rays最大项，prefer_quality=False时取设定时延最小项。schedule提供48/96/144射线的三项扫描档案及8/18/35ms设定成本，仅借鉴先过时限、再按性能偏好选择的原则。没有实现框架×输入分辨率搜索、功耗排序、检测精度测量、长宽比筛选或目标检测器训练部署。",
+      "implementation": {
+        "file": "drive/edge.py",
+        "functions": [
+          "choose_profile",
+          "schedule"
+        ],
+        "lines": [
+          23,
+          28
+        ],
+        "boundary": "rays表示扫描密度偏好，不是识别准确率；latency_ms为声明设置值。返回None表示没有可行档位，不证明任何检测网络存在或已部署。"
+      },
+      "formula_locations": [
+        "权利要求1 S2: F={(framework_n,resolution_m)}",
+        "权利要求1 S3: F'={f∈F | t_f≤T}",
+        "权利要求2: 输入长宽比差阈值"
+      ],
+      "use_status": "used_principle_only",
+      "must_not_claim": [
+        "专利发明了YOLO或通用行人检测模型",
+        "分辨率越大在本平台必然越准",
+        "仿真置信度等于检测准确率",
+        "部署在Jetson的文献实验就是本平台实验"
+      ]
+    },
+    {
+      "id": "mentor-patent-double-chain",
+      "type": "patent",
+      "application_number": "202310752982.9",
+      "user_number": "2023107529829",
+      "publication_number": "CN116684168B",
+      "inspected_full_text_publication": "CN116684168A",
+      "title": "基于双层区块链的云边协同方法",
+      "inventors": [
+        "张林",
+        "姚绍文",
+        "何臻力",
+        "余华键",
+        "吕家园",
+        "杨羽昊",
+        "田羽凌",
+        "徐子坤",
+        "李立恒",
+        "翟晓龙",
+        "铁清元"
+      ],
+      "assignee": "云南大学",
+      "grant_publication_date": "2026-08-11",
+      "urls": [
+        "https://patents.google.com/patent/CN116684168A/zh",
+        "https://patents.google.com/patent/CN116684168B/zh"
+      ],
+      "evidence": {
+        "kind": "local_B_certificate_and_local_A_full_specification;public_B_bibliography_checked",
+        "pdf_pages": 15,
+        "sha256": "745b5f93db4d97d59c846a53ab9902203421ee9bb35950bdde8b1190f216e390",
+        "checked_sections": [
+          "权利要求1 S1–S8",
+          "说明书[0047]–[0078]：CA、委员会、轮换与同步",
+          "[0083]–[0105]：BCS与区块卸载"
+        ]
+      },
+      "original_method": "边缘本地链与云全局链、CA选举委员会、轮换与同步的拜占庭共识，以及存储不足时区块/任务数据卸载。",
+      "adaptation": "本版环卫车辆执行与可选视觉计算不需要此共识链。",
+      "use_status": "inspected_not_selected",
+      "must_not_claim": [
+        "普通JSON日志或哈希审计就是双层区块链",
+        "A文本与B授权权利要求当然相同",
+        "证书构成实施许可"
+      ]
+    },
+    {
+      "id": "mentor-patent-low-altitude",
+      "type": "patent",
+      "application_number": "202310779699.5",
+      "user_number": "2023107796995",
+      "publication_number": "CN116684064B",
+      "inspected_full_text_publication": "CN116684064A",
+      "title": "基于区块链的低空安全控制方法及系统",
+      "inventors": [
+        "姚绍文",
+        "张林",
+        "何臻力",
+        "刘基旺"
+      ],
+      "assignee": "云南大学",
+      "grant_publication_date": "2026-07-03",
+      "urls": [
+        "https://patents.google.com/patent/CN116684064A/zh",
+        "https://patents.google.com/patent/CN116684064B/zh"
+      ],
+      "evidence": {
+        "kind": "local_B_certificate;public_A_full_specification_and_claims_checked;B_direct_fetch_failed",
+        "checked_sections": [
+          "公开A文本权利要求1–10",
+          "实施例5–7：签名证书、起飞/移动请求、智能合约与管控地点数据库"
+        ],
+        "note": "本地交付只有B证书，没有该专利完整B说明书；A公开全文提供方法信息。刷新A记录的同族/公开事件亦列出B及2026-07-03。"
+      },
+      "original_method": "CA身份验证与签名请求，经边缘服务器触发起飞/空域控制智能合约，以区块链完成低空飞行器管控。",
+      "adaptation": "与低速环卫车辆地面安全执行无直接必要关系，本版不纳入。",
+      "use_status": "inspected_not_selected",
+      "must_not_claim": [
+        "地面禁行区域判断即复现低空安全专利",
+        "已获取完整B授权权利要求",
+        "该专利使车辆具备安全自动驾驶能力"
+      ]
+    }
+  ],
+  "source_evidence_limit": "原文件的公式文本提取存在缺字。关键公式位置已按正文编号/页码核对；完整补充材料未取得，不能宣称完整复现。",
+  "code_audit": {
+    "status": "static_source_audit_complete_partial_adaptation",
+    "audited_on": "2026-10-30",
+    "implementation_files": [
+      {
+        "file": "drive/edge.py",
+        "sha256": "8deb4b7493fbfb5fe28c10cafc1352ff3e12619eb424f036dc010135883a3a7c",
+        "functions": [
+          {
+            "name": "priority_wait",
+            "line": 7
+          },
+          {
+            "name": "sqrt_allocation",
+            "line": 18
+          },
+          {
+            "name": "choose_profile",
+            "line": 23
+          },
+          {
+            "name": "schedule",
+            "line": 28
+          }
+        ]
+      }
+    ],
+    "verified_behavior": [
+      "priority_wait: W_p=(0.5*sum_i lambda_i*s_i²)/[(1-rho_high)*(1-rho_high-rho_same)]；rho>=0.95返回None列表",
+      "sqrt_allocation: 给定正系数和正预算，按sqrt(a_i)分配且份额和为预算",
+      "choose_profile: 先按设定时限过滤，再按rays或设定latency_ms选择",
+      "schedule: 制动/转向和独立安全监控固定onboard；仅三项可选环卫任务进入资源分配与链路/预测时延门控"
+    ],
+    "limitations": [
+      "本次只静态审阅drive/edge.py；未审阅调用方、真实执行器或操作系统隔离，也未对道路/硬件能力作验证",
+      "门控用合成RTT+Mbit/Mbps上传时间+计算时间+平均排队时间；未单独建模结果下载负载、迁移、随机丢包、抖动或最坏时延",
+      "不满足门控时只返回defer_local_archive放置标签，不在本文件执行归档、排队重试或车端补算",
+      "关键任务onboard是本调度模型中的约束；其200ms字段为设定值，不是实测控制周期或安全认证",
+      "边缘CPU份额与单服务台优先队列的组合是简化仿真近似；无多边缘站/云转发/最佳响应迭代",
+      "本文件没有目标检测网络、训练、准确率或硬件推断测量"
+    ],
+    "note": "已将实际采用标为部分独立改编或局部原则借鉴。未宣称原完整论文、专利、A2C或两层纳什博弈复现；未改应用代码。implementation_guidance.txt仍为研究建议稿，实际采用以本次审计为准。"
+  }
+}

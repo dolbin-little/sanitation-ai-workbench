@@ -1,0 +1,52 @@
+[
+  {
+    "case": "XLSX提取→模型理解→导入→候选",
+    "passed": true,
+    "answer": "已识别附件 tasks.json 中 1 条有效任务（LIVE-FILE-01，collection 型，节点 N1-4 存在，字段齐全，ID 不与现有任务重复）。将追加导入该任务，并调用现有 H-ALNS 生成候选方案；不会确认下发或修改原任务。",
+    "results": [
+      {
+        "tool": "import_tasks",
+        "imported": [
+          "LIVE-FILE-01"
+        ],
+        "errors": []
+      },
+      {
+        "tool": "plan",
+        "status": "候选方案已生成，尚未下发",
+        "metrics": {
+          "scheduled": 4,
+          "unassigned": 0,
+          "deferred": 0,
+          "late_tasks": 0,
+          "late_minutes": 0,
+          "deadhead_km": 32.5,
+          "service_km": 0.5,
+          "changes": 0,
+          "vehicles_used": 3,
+          "runtime_ms": 1307.4
+        }
+      }
+    ]
+  },
+  {
+    "case": "文字PDF提取→故障登记",
+    "passed": true,
+    "answer": "已识别PDF明确内容为车辆 V03 状态 FAULT，据此提出车辆故障登记事件（failure，vehicle=V03）。本条不生成、不确认、不下发任何调度计划；实际登记结果以工具返回为准。",
+    "results": [
+      {
+        "tool": "event",
+        "event": {
+          "at": 420,
+          "kind": "failure",
+          "label": "环卫-03故障，冻结例外：释放未完成任务及车辆锁定；车内既有载荷留车待救援"
+        }
+      }
+    ]
+  },
+  {
+    "case": "地图位置不明确时不编造任务",
+    "passed": true,
+    "answer": "暂不能导入：该请求只给出“地图左上角”，但缺少可执行任务所需的关键参数，地图左上角也没有已确认的唯一节点对应关系，我不能猜测坐标、车型或需求。请补充：1）具体节点ID（start=end，例如请确认“左上角”对应哪个节点）；2）任务名称；3）车型kind（collection压缩收运/hook勾臂运输/sweeper道路洗扫）；4）时间窗earliest与deadline（当日分钟，如08:30=510）；5）service服务时长；6）demand需求吨数；7）priority（1—3）；8）water水量（收运任务通常为0，仍需确认）；9）任务id是否由系统生成。参数齐全后我再生成导入候选，导入不等于安排完成。"
+  }
+]

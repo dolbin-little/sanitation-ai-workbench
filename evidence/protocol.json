@@ -1,0 +1,67 @@
+{
+  "status": "frozen_before_test",
+  "seeds": [
+    1000,
+    1001,
+    1002,
+    1003,
+    1004,
+    1005,
+    1006,
+    1007,
+    1008,
+    1009
+  ],
+  "scenarios": [
+    "collection",
+    "sweeping",
+    "pedestrian",
+    "parked",
+    "closure",
+    "signal",
+    "sensor_stale",
+    "network_loss",
+    "brake_fault"
+  ],
+  "policies": [
+    "reactive",
+    "shielded",
+    "no_shield",
+    "bc_guarded"
+  ],
+  "train_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "validation_seeds": [
+    80,
+    81
+  ],
+  "control_dt_s": 0.2,
+  "truth_dt_s": 0.05,
+  "episode_limit_s": 110,
+  "dwell_s": 3,
+  "safe_success": "endpoint dwell complete AND sweeping coverage >=90% when sweeping AND zero contact AND zero offroad samples AND zero red-light violations",
+  "world_variation": "start pose, actor lateral position, signal release and fault onset; fixed road layout and actor speed",
+  "scan_rng": "one Gaussian draw per ray per scan; same seed and simulation frame across policies",
+  "observations": "virtual ray intersections + map + ego localisation + synthetic signal/V2X; no actor truth supplied to controller",
+  "workers": 4,
+  "timing": "perf_counter: full simulation step including sensors/planner/controller/guard and truth evaluation, parallel CPU contention; excludes HTTP/UI; not vehicle real-time latency",
+  "weights_sha256": "71747dd2f60ed24a70e3f5c0a1a5332f72704bb5ef4624f997c9fa6d746cb358",
+  "source_sha256": {
+    "drive\\edge.py": "8deb4b7493fbfb5fe28c10cafc1352ff3e12619eb424f036dc010135883a3a7c",
+    "drive\\learning.py": "b348166c2c3aa27f254312c4890b39e3183c7e3fccaf8974db412404eeba3724",
+    "drive\\perception.py": "9b45916963d2729387057cebf35dc546c6e0545176ab2e37dc62caec1179da69",
+    "drive\\planning.py": "3e8cd8a18eee2a7b2415d930c91520169c276775e773a7f30179dcf23022b1cd",
+    "drive\\session.py": "35b9dcdf5fbfc0fc25beefbd984552dda616493ca2151bca44334d703fca56ee",
+    "drive\\world.py": "a2835f1daf79dc5971e752486d4f0cb8bc514205d9d1f2c956431856c2df2db1",
+    "drive\\__init__.py": "79712bae429634391648107e1b09f29925744d0479e450cf8b15eecd04a46233"
+  },
+  "limits": "self-generated 2D sanitation scenarios; not a public driving benchmark, physical safety proof, real lidar evaluation or ISO certification"
+}

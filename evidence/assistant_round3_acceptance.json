@@ -1,0 +1,109 @@
+{
+  "protocol": "同一合成场景3任务6车，8迭代3秒预算；每组3次，从新数据库开始。人工路径为按钮对应业务接口的程序重放，未测真人点击/阅读时间；助手含真实API等待。不以此声称真人效率提升。",
+  "trials": [
+    {
+      "trial": 1,
+      "flow": "manual_equivalent",
+      "seconds": 0.889,
+      "business_submissions": 2,
+      "success": true
+    },
+    {
+      "trial": 1,
+      "flow": "assistant",
+      "seconds": 6.586,
+      "business_submissions": 1,
+      "tool_steps": 2,
+      "success": true,
+      "answer": "已提出两步写操作：先将 V01 登记为车辆故障，再调用现有 H-ALNS 基于当前快照和剩余 pending 任务生成候选调度方案。候选仅为草稿，不确认下发、不锁定任务、不改原计划；V01 故障后的实际可安排任务、未安排项及指标以工具返回为准。"
+    },
+    {
+      "trial": 2,
+      "flow": "manual_equivalent",
+      "seconds": 0.051,
+      "business_submissions": 2,
+      "success": true
+    },
+    {
+      "trial": 2,
+      "flow": "assistant",
+      "seconds": 5.386,
+      "business_submissions": 1,
+      "tool_steps": 2,
+      "success": true,
+      "answer": "已收到明确执行指令：先登记 V01 车辆故障，再调用现有 H-ALNS 为剩余任务生成候选调度方案；只生成候选，不下发、不确认，执行结果以工具返回为准。"
+    },
+    {
+      "trial": 3,
+      "flow": "manual_equivalent",
+      "seconds": 0.041,
+      "business_submissions": 2,
+      "success": true
+    },
+    {
+      "trial": 3,
+      "flow": "assistant",
+      "seconds": 5.635,
+      "business_submissions": 1,
+      "tool_steps": 2,
+      "success": true,
+      "answer": "已收到明确执行指令：拟先登记 V01 车辆故障，再调用现有 H-ALNS 基于故障后的状态生成候选调度方案；不会确认下发，也不会改动原任务。V01 当前为 collection 车型且处于启用状态，故障登记后由求解器评估剩余任务分配与未安排项，具体结果以工具返回为准。"
+    }
+  ],
+  "summary": {
+    "manual_equivalent": {
+      "success": 3,
+      "n": 3,
+      "median_seconds": 0.051
+    },
+    "assistant": {
+      "success": 3,
+      "n": 3,
+      "median_seconds": 5.635
+    }
+  },
+  "cases": [
+    {
+      "case": "企业清单缺项→多轮补充→导入",
+      "passed": true,
+      "first_answer": "附件 enterprise.json 中识别到 1 条任务 ENTERPRISE-1（市场收运，车型映射为 collection，作业地点 N1-4，08:00 对应 480，完成时限 09:30 对应 570，作业时长 8 分钟，用水量 0，优先级 3）。目前必填业务字段中尚缺 demand（容量需求，单位吨）。请提供 ENTERPRISE-1 的容量需求吨数；收到后我才能导入。尚未执行导入。",
+      "second_answer": "已按补充的垃圾量 1 吨补全 ENTERPRISE-1，提交导入请求；不确认下发、不控制车辆、不改动原任务。导入结果以工具返回为准。",
+      "results": [
+        {
+          "tool": "import_tasks",
+          "batch_id": "B-57cf621473a7",
+          "imported": [
+            "ENTERPRISE-1"
+          ],
+          "errors": [],
+          "next": "可生成候选方案，审核后再下发。"
+        }
+      ]
+    },
+    {
+      "case": "自然语言撤回批次",
+      "passed": true,
+      "answer": "批次 B-57cf621473a7 当前状态为 imported，其中任务 ENTERPRISE-1 仍为 pending；该批次符合撤回未开始且未确认、未冻结、未锁定的导入任务条件。现提交撤回请求，原导入记录保留，未执行任务归档，实际结果以工具返回为准。",
+      "results": [
+        {
+          "tool": "withdraw",
+          "batch_id": "B-57cf621473a7",
+          "removed": [
+            "ENTERPRISE-1"
+          ],
+          "blocked": [],
+          "next": "被保护的任务未改变；归档记录保留，可查看批次。"
+        }
+      ]
+    }
+  ],
+  "previous_case_results": [
+    {
+      "case": "企业清单缺项→多轮补充→导入",
+      "passed": false,
+      "first_answer": "收到导入请求。附件 enterprise.json 中共 1 行，已识别：任务编号 ENTERPRISE-1、任务名称 市场收运、车型 压缩收运车（按当前车型类型映射为 collection）、作业地点 N1-4、开始时间 08:00（480 分钟）、完成时限 09:30（570 分钟）、作业时长 8 分钟、用水量 0、优先级 3。导入所需字段仍缺两项：1）需求量 demand（吨）；2）结束节点 end（附件只给了一个作业地点 N1-4，若为单点作业请确认 end 同为 N1-4）。缺少这两项，不能生成完整任务，因此暂未导入。请补充这两项后，我再提交 import_tasks。",
+      "second_answer": "已收到补充：需求量 demand=1 吨。当前任务仍缺少结束节点 end；附件仅给出作业地点 N1-4，不能据此猜测 end。按字段完整性要求，本次未提交 import_tasks，也未下发任何任务。请确认：若为单点作业，请回复“end=N1-4”；否则请提供结束节点。确认后我再提交导入。",
+      "results": []
+    }
+  ]
+}

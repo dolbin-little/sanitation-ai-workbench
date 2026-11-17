@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-29T23:32:00+08:00",
+  "scope": "低速环卫清扫/垃圾收运车辆的独立二维研究仿真；停车作业、行人避让与车队任务平台；不含真实车辆部署或正式功能安全认证。",
+  "source_count": 7,
+  "reuse_policy": {
+    "implementation": "依据公开论文中的数学思想独立实现，并在方法说明中署名；本目录只保存元数据、链接和本项目说明。",
+    "third_party_code_copied": false,
+    "third_party_weights_downloaded": false,
+    "paper_fulltexts_redistributed": false,
+    "important": "公开可阅读不等于代码、图片、全文或权重可自由再分发。若日后复制任何代码/素材，应另行核验对应文件、版本和许可并保留通知。"
+  },
+  "sources": [
+    {
+      "id": "S1",
+      "method": "A* 全局栅格路线",
+      "title": "A Formal Basis for the Heuristic Determination of Minimum Cost Paths",
+      "authors": ["Peter E. Hart", "Nils J. Nilsson", "Bertram Raphael"],
+      "year": 1968,
+      "publication": "IEEE Transactions on Systems Science and Cybernetics, SSC-4(2), 100–107",
+      "doi": "10.1109/TSSC.1968.300136",
+      "primary_url": "https://ai.stanford.edu/~nilsson/OnlinePubs-Nils/PublishedPapers/astar.pdf",
+      "publisher_url": "https://doi.org/10.1109/TSSC.1968.300136",
+      "access_note": "作者 Stanford 公开论文目录提供 PDF；搜索索引可读，直接抓取时超时；DOI 成功解析至 IEEE 原始记录（页面有机器人校验）。",
+      "license": {"spdx": null, "status": "未发现本文的开放再分发许可；按受版权保护的学术论文处理。"},
+      "project_use": "独立实现 2m 八邻接栅格 A*，代价为相邻栅格欧氏长度、启发式为目标欧氏距离，并禁止对角穿角；每五个控制周期利用低速感知轨迹和认证封路消息重规划。栅格路线不保证车辆运动学可行，后续由局部轨迹采样与车身包络检查处理。"
+    },
+    {
+      "id": "S2",
+      "method": "DWA 启发的局部速度/转角采样",
+      "title": "The Dynamic Window Approach to Collision Avoidance",
+      "authors": ["Dieter Fox", "Wolfram Burgard", "Sebastian Thrun"],
+      "year": 1997,
+      "publication": "IEEE Robotics & Automation Magazine, 4(1), 23–33",
+      "doi": "10.1109/100.580977",
+      "primary_url": "https://publications.ri.cmu.edu/the-dynamic-window-approach-to-collision-avoidance",
+      "paper_url": "https://publications.ri.cmu.edu/storage/publications/pub_files/pub1/fox_dieter_1997_1/fox_dieter_1997_1.pdf",
+      "license": {"spdx": null, "status": "CMU 官方页明确保留作者/权利人版权，未经明确许可不得转载全文。", "evidence_url": "https://publications.ri.cmu.edu/the-dynamic-window-approach-to-collision-avoidance"},
+      "project_use": "实现 DWA 启发的有限候选滚动规划：在 Pure Pursuit 转角附近取五个转角、三个目标速度，共十五个候选，以纵向 P 控制生成加速度，用带转角速率限制的自行车模型预测 12×0.2s，按车身净间距、道路包络、路径节点进度及偏差筛选评分。没有原始 DWA 的完整速度空间动态窗口和显式停车可行域，不宣称完整 DWA 复现。"
+    },
+    {
+      "id": "S3",
+      "method": "Pure Pursuit 路径跟踪",
+      "title": "Implementation of the Pure Pursuit Path Tracking Algorithm",
+      "authors": ["R. Craig Coulter"],
+      "year": 1992,
+      "publication": "Carnegie Mellon University, CMU-RI-TR-92-01",
+      "doi": null,
+      "primary_url": "https://publications.ri.cmu.edu/implementation-of-the-pure-pursuit-path-tracking-algorithm",
+      "paper_url": "https://publications.ri.cmu.edu/storage/publications/pub_files/pub3/coulter_r_craig_1992_1/coulter_r_craig_1992_1.pdf",
+      "license": {"spdx": null, "status": "CMU 官方页明确保留作者/权利人版权，未经明确许可不得转载全文。", "evidence_url": "https://publications.ri.cmu.edu/implementation-of-the-pure-pursuit-path-tracking-algorithm"},
+      "project_use": "独立实现以后轴为参考的 Pure Pursuit 前视点与曲率转角，轴距 2.8m，前视距离 max(4m,1.3v)，并施加转角及转角速率限制。纵向实际为 P 控制 a=clip(1.8(v_ref-v),-3,1.8)，没有积分或微分项；红灯、行人停让、清扫目标速度及终点驻留为项目状态逻辑，不称 PID。"
+    },
+    {
+      "id": "S4",
+      "method": "显式制动距离与独立运行时保护的思路参考",
+      "title": "On a Formal Model of Safe and Scalable Self-driving Cars",
+      "authors": ["Shai Shalev-Shwartz", "Shaked Shammah", "Amnon Shashua"],
+      "year": 2017,
+      "version": "arXiv:1708.06374v6, revised 2018-10-27",
+      "doi": "10.48550/arXiv.1708.06374",
+      "primary_url": "https://arxiv.org/abs/1708.06374",
+      "license": {"spdx": null, "status": "arXiv non-exclusive distribution license；该许可是作者授予 arXiv 的分发许可，不是通用的第三方再分发许可。", "evidence_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/license.html"},
+      "project_use": "仅借鉴显式制动间距思想：独立监控感知年龄超过 0.6s、按车头偏移的红灯停车距离，以及 10×0.2s 名义自行车模型预测的车身间距/道路包络；触发时请求 -3m/s² 制动。停车距离使用固定名义减速度，未实现独立 TTC 求解或完整 RSS 规则，也未提前读取未告知控制器的制动效率故障。不是 RSS 合规证明、形式化保证或 ISO 26262 认证。"
+    },
+    {
+      "id": "S5",
+      "method": "自行车运动学、PID 跟踪与二维传感器教学参照",
+      "title": "PythonRobotics: Python sample codes and textbook for robotics algorithms",
+      "authors": ["Atsushi Sakai", "PythonRobotics contributors"],
+      "year": 2016,
+      "version": "官方文档与 master 许可证，于 2026-10-29 查阅；未复制代码，未固定代码依赖。",
+      "doi": null,
+      "primary_url": "https://github.com/AtsushiSakai/PythonRobotics",
+      "documentation_urls": [
+        "https://atsushisakai.github.io/PythonRobotics/modules/6_path_tracking/pure_pursuit_tracking/pure_pursuit_tracking.html",
+        "https://atsushisakai.github.io/PythonRobotics/modules/6_path_tracking/model_predictive_speed_and_steering_control/model_predictive_speed_and_steering_control.html",
+        "https://atsushisakai.github.io/PythonRobotics/modules/3_mapping/ray_casting_grid_map/ray_casting_grid_map.html",
+        "https://atsushisakai.github.io/PythonRobotics/modules/3_mapping/k_means_object_clustering/k_means_object_clustering.html"
+      ],
+      "license": {"spdx": "MIT", "copyright": "Copyright (c) 2016 - now Atsushi Sakai and other contributors", "evidence_url": "https://github.com/AtsushiSakai/PythonRobotics/blob/master/LICENSE", "condition": "若复制实质性代码/文档，须保留原版权和完整 MIT 许可通知。当前只引用并独立实现。"},
+      "project_use": "核对教学范围后独立实现后轴自行车运动学及纵向 P 控制；合成 LiDAR 为 96 条二维射线、24m 量程和 0.015m 距离高斯噪声，只与合成圆形对象求最近交点。使用相邻射线/距离门限聚类、门限最近邻关联和 alpha-beta 质心跟踪；自车定位、地图、虚拟信号为仿真通道。未复制代码，不宣称 PID、k-means 复现、真实三维感知或真实传感器性能。"
+    },
+    {
+      "id": "S6",
+      "method": "监督式传感到控制学习的历史方法参照",
+      "title": "ALVINN: An Autonomous Land Vehicle in a Neural Network",
+      "authors": ["Dean A. Pomerleau"],
+      "year": 1988,
+      "publication": "Advances in Neural Information Processing Systems 1 (NIPS 1988), 305–313",
+      "doi": null,
+      "primary_url": "https://proceedings.neurips.cc/paper/1988/hash/812b4ba287f5ee0bc9d43bbf5bbe87fb-Abstract.html",
+      "paper_url": "https://papers.neurips.cc/paper_files/paper/1988/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Paper.pdf",
+      "license": {"spdx": null, "status": "该历史论文页面未给出可核验的本文开放许可；按受版权保护的学术论文处理，不复制全文、图或权重。"},
+      "project_use": "作为监督式传感到控制学习的历史参照；项目已保存本地合成教师数据训练的 17→32→16→2 小 MLP 权重，隐藏层 tanh，输出转角/加速度，NumPy 执行 MSE/Adam 训练，标准库执行前向推理。输入含八个激光扇区、状态及导航特征，其中包括 Pure Pursuit 建议转角；这不是纯传感器到控制学习、ALVINN 复现、图像端到端模型或预训练驾驶基础模型。"
+    },
+    {
+      "id": "S7",
+      "method": "模仿学习分布偏移与闭环评估依据",
+      "title": "A Reduction of Imitation Learning and Structured Prediction to No-Regret Online Learning",
+      "authors": ["Stéphane Ross", "Geoffrey J. Gordon", "J. Andrew Bagnell"],
+      "year": 2011,
+      "publication": "AISTATS 2011, Proceedings of Machine Learning Research 15, 627–635",
+      "doi": null,
+      "primary_url": "https://proceedings.mlr.press/v15/ross11a.html",
+      "paper_url": "https://proceedings.mlr.press/v15/ross11a/ross11a.pdf",
+      "license": {"spdx": null, "status": "本文元数据页显示作者与 PMLR 版权，未在核验页确认本文具体开放许可；只提供引用链接。"},
+      "project_use": "作为行为克隆分布偏移与闭环评估的依据；项目普通 BC 从合成教师回合拟合动作，评估通过实际闭环 Session 与独立监控运行，并保存逐回合结果。来源论文不为本项目的种子划分或实测效果背书；数据切分与指标须以 evidence/ 的实际运行清单为准。未实现交互式专家重标注和数据聚合，不称 DAgger。"
+    }
+  ]
+}

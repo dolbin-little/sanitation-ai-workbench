@@ -1,0 +1,13 @@
+{
+  "manual": {
+    "semanticInteractions": 5,
+    "elapsedIncludingAgentOverhead": 57.284,
+    "success": true
+  },
+  "assistant": {
+    "semanticInteractions": 3,
+    "elapsedIncludingAgentOverhead": 91.315,
+    "success": true
+  },
+  "scope": "单个隔离场景真实网页自动化操作，时间含工具轮次与代理停顿，不是人工用户速度；点击/选择/输入按语义动作计。两条路径均未下发。"
+}
