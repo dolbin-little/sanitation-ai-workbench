@@ -24,6 +24,13 @@ py -3.12 -m venv .venv
 
 macOS 或 Linux 可用 `python3.12 -m venv .venv`，并将上面两行的解释器路径改为 `.venv/bin/python`。服务启动后打开 `http://127.0.0.1:8785/assistant`。首次启动会从合成场景创建 SQLite 库，评审在本地使用无需账号。CSV / JSON 校验、计划生成和知识检索可以离线运行。依赖清单中的 openpyxl 与 pypdf 分别用于 XLSX 和文本型 PDF。
 
+仓库包含已构建的 Vue 3 前端，按上面的 Python 流程即可启动。修改前端源码后，使用 Node.js 22.12 或更新版和 pnpm 11 重新构建：
+
+```powershell
+pnpm --dir frontend install --frozen-lockfile
+pnpm --dir frontend build
+```
+
 ### 接入模型
 
 将以下值设置在**启动服务的终端**中。地址应填兼容 OpenAI Chat Completions 的 API 基址，末尾无需拼接 `/chat/completions`。模型名须与供应商账户实际开通项一致。
@@ -53,7 +60,7 @@ Python HTTP 服务 ── 助手编排 ── Chat Completions
         └─ 车队状态与 SQLite ← H-ALNS 候选及求解轨迹
 ```
 
-- `web/` 与 `legacy/web/` 提供 HTML、CSS 和原生 JavaScript 界面、状态卡和调度地图。
+- AI 作业中心以 Vue 3 构建。`frontend/src/` 包含入口、响应式状态和界面组件，分别负责对话、清单编辑、工作结果、候选路线和证据引用。`web/assistant.html` 加载 Vite 构建的产物。调度工作台和驾驶仿真分别保留在 `legacy/web/` 和 `web/`。
 - `assistant_service.py` 整理最新车队快照、检索片段和有界会话，解析模型提议，再调用受限业务工具。请求标识去重，过期版本要求刷新。
 - `assistant_imports.py` 负责中文字段映射、地点与时间归一化、缺项合并和规则校验。`assistant_files.py` 提取附件内容，`assistant_knowledge.py` 索引本地资料。
 - `legacy/backend/` 包含任务和路线模型、车辆约束、H-ALNS 与审计。候选说明来自求解器实际尝试，展示每个任务与车辆组合的可行计数和排除原因。
