@@ -12,6 +12,7 @@ __pycache__/
 /legacy/data/public-benchmarks/
 /assistant_vendor/
 /runtime/
+/frontend/node_modules/
 /evidence/round3_browser/
 /evidence/replays/
 
